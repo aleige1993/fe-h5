@@ -1,0 +1,129 @@
+@charset "utf-8";
+.luckydraw-begin {
+  background: url("img/draw-bg.png") no-repeat;
+  background-size: cover;
+  padding-bottom: .4rem;
+}
+
+.luckydraw .title img, .luckydraw-main > img  {
+  display: inline-block;
+  width: 100%;
+}
+.luckydraw .title {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 2.4rem;
+}
+
+.luckydraw-main {
+  position: relative;
+  margin: .4rem .8rem;
+}
+.luckydraw-panel {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 70%;
+  height: 55%;
+}
+.luckydraw-panel li {
+  display: table;
+  position: absolute;
+  width: 33.33333%;
+  height: 33.33333%;
+  padding: .1rem;
+}
+.luckydraw-panel li div {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height:100%;
+  line-height: 1.2;
+  padding: 0 .1rem;
+  font-size: .3rem;
+  text-align: center;
+  background: #fff;
+  border-radius: .1rem;
+}
+.luckydraw-panel li.active div{
+  color: #fff;
+  background: #c51f2f;
+}
+.luckydraw-panel li:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.luckydraw-panel li:nth-child(2) {
+  top: 0;
+  left: 33.33333%;
+}
+.luckydraw-panel li:nth-child(3) {
+  top: 0;
+  left: 66.66666%;
+}
+.luckydraw-panel li:nth-child(4) {
+  top: 33.33333%;
+  left: 66.66666%;
+}
+.luckydraw-panel li:nth-child(5) {
+  top: 66.66666%;
+  left: 66.66666%;
+}
+.luckydraw-panel li:nth-child(6) {
+  top: 66.66666%;
+  left: 33.33333%;
+}
+.luckydraw-panel li:nth-child(7) {
+  top: 66.66666%;
+  left: 0;
+}
+.luckydraw-panel li:nth-child(8) {
+  top: 33.33333%;
+  left: 0;
+}
+.luckydraw-panel li:nth-child(9) {
+  top: 33.33333%;
+  left: 33.33333%;
+  padding: 0;
+  text-align: center;
+  span{
+    display: inline-block;
+    width: 80%;
+    height: 90%;
+    margin-top: 5%;
+    background: url("img/draw-button.png") center no-repeat;
+    background-size: 100% 100%;
+    &.active {
+      margin-top: 7%;
+      background: url("img/draw-button-active.png") center no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.luckydraw-rules {
+  //position: relative;
+}
+.luckydraw-rules .title, .luckydraw-rules .text {
+  //position: absolute;
+  //width: 100%;
+  //left: 0;
+  //top: 0;
+}
+.luckydraw-rules .title {
+  text-align: center;
+}
+.luckydraw-rules .title img {
+  display: inline-block;
+  height: 1.4rem;
+}
+.luckydraw-rules .text {
+  position: relative;
+  margin: -.4rem .8rem 0;
+  padding: .4rem;
+  background: #fff;
+  border: .1rem solid #000000;
+  border-radius: .4rem;
+  line-height: 1.4;
+}
+

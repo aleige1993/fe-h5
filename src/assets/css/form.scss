@@ -1,0 +1,26 @@
+.page-form{
+  margin-top: 1rem;
+  padding: 0 .4rem;
+  .form-row{
+    margin-bottom: .3rem;
+    input, button {
+      width: 100%;
+      height: 1.2rem;
+      border: 1px solid #cacaca;
+      border-radius: .2rem;
+    }
+    label{
+      display: inline-block;
+      margin-bottom: .2rem;
+    }
+    button {
+      height: 1.28rem;
+      margin-top: .4rem;
+      color: #fff;
+      background: $color-primary;
+      span {
+        font-size: .4rem;
+      }
+    }
+  }
+}

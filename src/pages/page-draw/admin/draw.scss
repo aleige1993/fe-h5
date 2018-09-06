@@ -1,0 +1,178 @@
+@charset "utf-8";
+.luckydraw-begin {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("img/draw-bg.png") no-repeat;
+  background-size: 100%;
+}
+
+.luckydraw {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  width: 30%;
+}
+
+.luckydraw .title img, .luckydraw-main > img  {
+  display: inline-block;
+  width: 100%;
+}
+.luckydraw .title {
+  width: 70%;
+  margin: 10% auto 5%;
+}
+
+.luckydraw-main {
+  position: relative;
+  margin: 0 5%;
+}
+.luckydraw-panel {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 70%;
+  height: 55%;
+}
+.luckydraw-panel li {
+  display: table;
+  position: absolute;
+  width: 33.33333%;
+  height: 33.33333%;
+  padding: 5px;
+}
+.luckydraw-panel li div {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height:100%;
+  line-height: 1.2;
+  font-size: 12px;
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+}
+.luckydraw-panel li.active div{
+  color: #fff;
+  background: #c51f2f;
+}
+.luckydraw-panel li:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.luckydraw-panel li:nth-child(2) {
+  top: 0;
+  left: 33.33333%;
+}
+.luckydraw-panel li:nth-child(3) {
+  top: 0;
+  left: 66.66666%;
+}
+.luckydraw-panel li:nth-child(4) {
+  top: 33.33333%;
+  left: 66.66666%;
+}
+.luckydraw-panel li:nth-child(5) {
+  top: 66.66666%;
+  left: 66.66666%;
+}
+.luckydraw-panel li:nth-child(6) {
+  top: 66.66666%;
+  left: 33.33333%;
+}
+.luckydraw-panel li:nth-child(7) {
+  top: 66.66666%;
+  left: 0;
+}
+.luckydraw-panel li:nth-child(8) {
+  top: 33.33333%;
+  left: 0;
+}
+.luckydraw-panel li:nth-child(9) {
+  top: 33.33333%;
+  left: 33.33333%;
+  padding: 0;
+  text-align: center;
+  span{
+    display: inline-block;
+    width: 80%;
+    height: 90%;
+    margin-top: 5%;
+    background: url("img/draw-button.png") center no-repeat;
+    background-size: 100% 100%;
+    &.active {
+      margin-top: 7%;
+      background: url("img/draw-button-active.png") center no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.luckydraw-right {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 30%;
+}
+.luckydraw-right-module .title {
+  text-align: center;
+}
+.luckydraw-right-module .title img {
+  display: inline-block;
+  height: 60px;
+}
+.luckydraw-right-module .text {
+  position: relative;
+  margin: -10px 0 0;
+  padding: 10px 15px;
+  line-height: 28px;
+  font-size: 16px;
+  background: #fff;
+  border: 5px solid #000000;
+  border-radius: 10px;
+}
+
+.luckydraw-right-module.namelist {
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  width: 30%;
+}
+.luckydraw-right-module.namelist .text {
+  height: 210px;
+  overflow: hidden;
+  padding: 20px 15px;
+  .left {
+    float: left;
+    width: 70%;
+    height: 150px;
+    overflow: hidden;
+    ul {
+      li{
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .right {
+    float: right;
+    width: 30%;
+    div {
+      padding: 1%;
+      border: 1px solid #080102;
+      border-radius: 5px;
+      img {
+        width: 100%;
+      }
+    }
+    p {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+

@@ -1,0 +1,162 @@
+@charset "utf-8";
+.luckydraw {
+  width: 100%;
+  display: table;
+  background: #f5f5f5;
+  //background: url(img/timg.jpg) no-repeat;
+  //background-size: 100% 100%;
+}
+
+.luckydraw-panel {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.luckydraw-panel .title {
+  width: 7.8rem;
+  height: 1.4rem;
+  margin: 0 auto;
+  text-align: center;
+  background: url(img/draw-title-bg.png) no-repeat;
+  background-size: cover;
+  -webkit-animation: drawtitle-bgchange 2s infinite;
+}
+
+.luckydraw-panel .title span {
+  display: inline-block;
+  width: 5.8rem;
+  height: .85rem;
+  margin-top: .26rem;
+  background: url(img/draw-title.png) no-repeat;
+  background-size: cover;
+}
+
+.luckydraw-panel ul {
+  box-sizing: border-box;
+  height: 11.4rem;
+  margin: 1rem .8rem !important;
+  padding: .58rem !important;
+  //background: url(img/draw-panel-bg.png) no-repeat;
+  //background-size: cover;
+  //-webkit-animation: drawpanel-bgchange 1.5s infinite;
+}
+
+.luckydraw-panel li {
+  float: left;
+  display: table;
+  width: 1.76rem;
+  height: 1.76rem;
+  margin: .02rem !important;
+  text-align: center;
+  background: #eee url(img/draw-cell-default2.png) no-repeat;
+  background-size: cover;
+}
+
+.luckydraw-panel li div {
+  display: table-cell;
+  vertical-align: middle
+}
+
+.luckydraw-panel li img, .luckydraw-panel li span {
+  display: inline-block;
+}
+
+.luckydraw-panel li img {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.luckydraw-panel li span {
+  width: 5em;
+  overflow: hidden;
+  line-height: .4rem;
+  font-size: .3rem;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.luckydraw-panel li.active {
+  background: url(img/draw-cell-active2.png) no-repeat;
+  background-size: cover;
+}
+
+.luckydraw-panel .begin {
+  display: block;
+  width: 4.6rem;
+  height: 1.2rem;
+  margin: 0 auto;
+  border: none;
+  background: #2193fc;
+  color: #fff;
+  border-radius: 1.2rem;
+  //background: url(img/draw-button.png) no-repeat;
+  //background-size: cover;
+}
+
+.luckydraw-result {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 12.5rem;
+  background: url(img/draw-result-bg.png) no-repeat;
+  background-size: cover;
+}
+
+.luckydraw-result > div {
+  position: absolute;;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.luckydraw-result > div * {
+  margin-left: .2rem;
+  line-height: 1.4
+}
+
+.luckydraw-result img {
+  height: 3rem;
+}
+
+.luckydraw-result .button {
+  display: inline-block;
+  margin-top: 1rem;
+  vertical-align: bottom;
+  width: 6rem;
+  height: 1.2rem;
+}
+
+.luckydraw-result .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+@-webkit-keyframes drawtitle-bgchange {
+  0%, 75% {
+    background: url(img/draw-title-bg.png) no-repeat;
+    background-size: cover;
+  }
+  25%, 100% {
+    background: url(img/draw-title-bg2.png) no-repeat;
+    background-size: cover;
+  }
+}
+
+@-webkit-keyframes drawpanel-bgchange {
+  0%, 100% {
+    background: url(img/draw-panel-bg.png) no-repeat;
+    background-size: cover;
+  }
+  50% {
+    background: url(img/draw-panel-bg2.png) no-repeat;
+    background-size: cover;
+  }
+}

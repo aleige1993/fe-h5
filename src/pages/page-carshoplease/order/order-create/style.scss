@@ -1,0 +1,190 @@
+.create-order {
+  padding: .4rem .4rem 2.4rem;
+}
+.create-order-inview {
+  padding: .8rem;
+  border-radius: .1rem;
+  background: #fff;
+}
+.create-order-inview.first {
+  min-height: 3rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid #eeeeee;
+}
+.create-order-inview.second {
+  padding-top: .6rem;
+}
+.create-order-inview h1, .create-order-inview h2 {
+  font-weight: normal;
+}
+.create-order-inview h1, .create-order-inview h1 img {
+  vertical-align: middle;
+}
+.create-order-inview h1 {
+  margin-bottom: .4rem;
+  padding-left: .6rem;
+  line-height: .5rem;
+  font-size: .48rem;
+  color: #3984ff;
+  background: url("../../img/shop.png") left top no-repeat;
+  background-size: .5rem;
+}
+.create-order-inview h1 img {
+  width: .24rem;
+  margin-left: .1rem;
+}
+.create-order-inview h2 {
+  margin-top: .2rem;
+  font-size: .4rem;
+  color: gray;
+}
+.create-order-inview h2 a {
+  text-decoration: underline;
+}
+
+.selectcar-type, .selectcar-type li {
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+}
+.selectcar-type {
+  display: flex;
+  background: #f4f4f4;
+  li {
+    width: 100%;
+    padding: .4rem 0;
+    text-align: center;
+    background: #f4f4f4;
+    &.active {
+      background: #fff;
+    }
+  }
+}
+
+.select-place  {
+  white-space: nowrap;
+  padding-top: 0;
+  padding-bottom: 0;
+  li {
+    display: flex;
+    align-items: center;
+    padding-top: .4rem;
+    line-height: 1rem;
+    img {
+      width: .5rem;
+      margin-right: .1rem;
+    }
+    span {
+      display: inline-block;
+      width: 6em;
+    }
+    input {
+      width: 100%;
+      height: 1rem;
+      font-size: .4rem;
+      text-indent: .4rem;
+      border: 1px solid #eeeeee;
+      border-radius: 1rem;
+    }
+  }
+}
+
+.select-time {
+  position: relative;
+  height: 1.6rem;
+}
+.select-time .datatime{
+  position: absolute;
+  top: 0;
+  color: gray;
+}
+.select-time #startTime {
+  left: 0;
+}
+.select-time #endTime {
+  right: 0;
+}
+.select-time .datatime span, .select-time .datatime span img  {
+  vertical-align: middle;
+}
+.select-time .datatime span {
+  display: inline-block;
+  width: 100%;
+  margin-top: .2rem;
+  text-align: center;
+  font-size: .6rem;
+  color: #3984ff;
+}
+.select-time .datatime span img {
+  width: .3rem;
+}
+.select-time .countime {
+  position: relative;
+  margin: 0 2.8rem;
+  padding: .4rem 0 .1rem;
+  text-align: center;
+  color: gray;
+  border-bottom: 2px solid #3984ff;
+
+}
+.select-time .countime:after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  bottom: -6px;
+  width: 10px;
+  height: 11px;
+  background: url("../../img/right-arrow-solid.png") no-repeat;
+  background-size: cover;
+}
+.car-message {
+  margin-top: .3rem;
+}
+.car-message img {
+  width: 100%;
+  border-radius: .1rem;
+}
+.car-message p{
+  margin-top: .2rem;
+}
+.car-message .right {
+  float: right;
+}
+.car-message .right.select, .car-message .right.select img {
+  vertical-align: middle;
+}
+.car-message .right.select {
+  white-space: nowrap;
+  padding: 1px .2rem;
+  color: #3984ff;
+  border: 1px solid #3984ff;
+  border-radius: .4rem;
+}
+.car-message .right.select img {
+  width: .24rem;
+  margin-left: 1px;
+}
+
+.remarks {
+  margin-top: .4rem;
+  text-align: center;
+  color: gray;
+}
+
+.next-button {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  background: #fff;
+  div {
+    height: 1.2rem;
+    margin: .4rem;
+    line-height: 1.2rem;
+    text-align: center;
+    color: #fff;
+    background: #2193fc;
+    border-radius: 1.2rem;
+  }
+}
+

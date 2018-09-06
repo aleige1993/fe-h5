@@ -1,0 +1,53 @@
+
+* {
+  box-sizing: border-box;
+  font-size: .4rem;
+  font-family: '微软雅黑';
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  line-height: 1;
+  background-color: #fff;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ol, ul, li, form, fieldset, label, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+input[type='text'], input[type="password"] {
+  text-indent: .2rem;
+}
+
+ul, li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  &:hover {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+
+
