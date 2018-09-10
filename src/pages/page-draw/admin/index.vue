@@ -35,7 +35,10 @@
       <div id="namelist" class="text">
         <div class="left">
           <ul>
-            <li v-for="list in nameDataList">{{list.mobile}}获得{{list.prizeName}}</li>
+            <li v-for="(list, index) in nameDataList">
+              <!--({{index + 1}}) -->
+              {{list.mobile}}获得{{list.prizeName}}
+            </li>
           </ul>
         </div>
         <div class="right">
@@ -87,7 +90,7 @@
             });
             if (_this.$data.nameDataList.length > 5) {
               _this.$nextTick(() => {
-                $('#namelist').Scroll({line: 5, speed: 2000, timer: 2000});
+                $('#namelist').Scroll({line: 1, speed: 1000, timer: 1000});
               });
             }
           }
@@ -116,9 +119,9 @@
         });
         this.$data.qrcodeUrl = res.body.meActivityDTO.img;
         this.initSock();
-        for (var index = 0; index < 5; index ++) {
-          this.drawAction(2, '15123334187', '1111111');
-        }
+//        for (var index = 0; index < 16; index ++) {
+//          this.drawAction(2, '1111111', '1111111111111111111111111111111111111111111111111');
+//        }
       }
     },
     async mounted() {
