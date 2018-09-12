@@ -8,7 +8,7 @@
         <ul v-if="couponList && couponList.length">
           <li v-for="(list, index) in couponList">
             <div  :class="'main ' + list.className">
-              <span @tap="couponShare(list.couponName)" class="share"></span>
+              <span @tap="couponShare(list.couponName, list.activityNo)" class="share"></span>
               <img v-if="list.status === '1'" class="status" src="../../img/coupon-used.png" alt="">
               <img v-if="list.status === '2'" class="status" src="../../img/coupon-exchanged.png" alt="">
               <img v-if="list.status === '3'" class="status" src="../../img/coupon-timeout.png" alt="">
@@ -34,7 +34,7 @@
             </div>
             <div v-if="list.show" class="explain">
               <h1>使用说明</h1>
-              <div>{{list.useInfo}}</div>
+              <div v-html="list.useInfo.replace(/\n/g, '<br/ >')"></div>
             </div>
           </li>
         </ul>
@@ -52,11 +52,12 @@
       };
     },
     methods: {
-      couponShare(couponName) {
+      couponShare(couponName, activityNo) {
         let username = this.$Tools.stringAddStar(this.$nativeAppUtils.getPhoneNo());
         let title = `${username}用户获得优惠劵"${couponName}"`;
         let desc = `${username}用户邀您到店参与颂车小站开业抽奖活动`;
-        this.$nativeAppUtils.appShareLink(title, desc, 'http://www.songcw.com/apk/downLoad.html', 'http://www.songcw.com/carshopLogo.png');
+        let url = `${window.location.origin}/#/draw/begin?id=${activityNo}&memberNo=${this.$nativeAppUtils.getNums()}`;
+        this.$nativeAppUtils.appShareLink(title, desc, url, 'http://www.songcw.com/carshopLogo.png');
       },
       showExplain(listIndex) {
         this.$data.couponList = this.$data.couponList.map((item, index) => {
@@ -205,6 +206,9 @@
   }
   .coupon-list .text p, .coupon-list .text span, .coupon-list .explain > div {
     font-size: .35rem;
+  }
+  .coupon-list .explain > div {
+    line-height: 1.2;
   }
 </style>
 

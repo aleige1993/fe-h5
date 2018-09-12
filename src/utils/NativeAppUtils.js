@@ -35,7 +35,6 @@ class NativeAppUtils {
     } else {
       return null;
       // return 101803220305;
-      // return 101808030003;
     }
   }
 

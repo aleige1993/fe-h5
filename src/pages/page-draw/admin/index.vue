@@ -22,11 +22,13 @@
     <div class="luckydraw-right">
       <div class="luckydraw-right-module">
         <div class="title"><img src="./img/rules-title.png" alt=""></div>
-        <div class="text">1.每位注册用户均有一次抽奖机会；<br />
+        <div class="text">
+          1.每位注册用户均有一次抽奖机会；<br />
           2.分享至朋友圈，即可获得一次抽奖机会；<br />
           3.成功邀请一位朋友注册，即可获得一次抽奖机会；<br />
           4.优惠券需到指定汽后厂家使用，不得兑换现金；<br />
-          5.该活动解释权归颂车网所有<span v-if="this.$Tools.isAppleBrowser()">，与苹果公司无关</span>
+          5.以上活动必须到店内进行咨询或抽奖，本店地址：重庆市渝中区罗汉沟26号附4号。<br />
+          6.该活动解释权归颂车网所有<span v-if="this.$Tools.isAppleBrowser()">，与苹果公司无关</span>
         </div>
       </div>
     </div>
