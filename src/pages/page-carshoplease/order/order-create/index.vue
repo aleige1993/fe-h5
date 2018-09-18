@@ -76,6 +76,7 @@
         shopList: null,
         carInfo: {},
         carList: null,
+        carAllList: null,
         placeList: palceArr.getData(),
         personList: [{
           text: '4',
@@ -215,8 +216,10 @@
       },
       async selectActivity(type, saleSn, saleName) {
 //        this.$Tools.layerOpen(this.$nativeAppUtils.getNums());
-        if (type === '2') {
-//          this.$Tools.layerOpen(type);
+        if (type === '1') {
+          this.$data.carList = this.$data.carAllList.filter(item => item.carsName.indexOf('朗逸') > -1 ||
+            item.carsName.indexOf('华颂7') > -1 || item.carsName.indexOf('雪铁龙C3R') > -1);
+        } else if (type === '2') {
           if (!this.$nativeAppUtils.getNums()) {
             this.$nativeAppUtils.toLogin();
             return false;
@@ -229,10 +232,16 @@
             this.$Tools.layerOpen('您没有免费接送的资格，去抽奖活动可获取资格');
             return false;
           }
-          this.$data.carInfo = this.$data.carList.filter(item => item.carsName.indexOf('华颂7') > -1)[0];
+          this.$data.carList = this.$data.carAllList.filter(item => item.carsName.indexOf('华颂7') > -1);
         } else {
-          this.$data.carInfo = this.$data.carList[0];
+          this.$data.carList = this.$data.carAllList;
         }
+        this.$data.carInfo = this.$data.carList[0];
+        this.$data.carList = this.$data.carList.map((item, index) => {
+          item.value = index;
+          item.text = item.carsName + `(￥${item.unitPrice}/${item.unit})`;
+          return item;
+        });
         this.$data.activityList = this.$data.activityList.map(item => {
           item.active = type === item.type;
           return item;
@@ -246,7 +255,7 @@
       selectType(info, list) {
         let _this = this;
         let picker = new mui.PopPicker();
-        picker.setData(this.$data[list]);
+        picker.setData(_this.$data[list]);
         picker.show(items => {
           _this.$data[info] = _this.$data[list][items[0].value];
           picker.dispose();
@@ -351,11 +360,7 @@
         }
         let carRes = await this.$http.get('/store/car/carSeriesList', {});
         if (carRes.success && carRes.success === 'true') {
-          this.$data.carList = carRes.body.resultList.map((item, index) => {
-            item.value = index;
-            item.text = item.carsName + `(￥${item.unitPrice}/${item.unit})`;
-            return item;
-          });
+          this.$data.carAllList = carRes.body.resultList;
 //          this.$data.carInfo = this.$data.carList[0];
         }
         this.selectActivity(actType, actCode, actName);
