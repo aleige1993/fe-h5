@@ -5,23 +5,17 @@ class NativeAppUtils {
     return window.jsApi;
   }
 
-  getJsApiLoading() {
-    return window.jsApiLoading;
-  }
-
   /**
    * 获取设备为android或ios
    * @returns {*}
    */
   getAPPDevice() {
-    if (this.getJsApiLoading()) {
-      return this.getJsApiLoading().getAPPDevice().toLowerCase();
-    }
     if (this.getJsApi()) {
       return this.getJsApi().getAPPDevice().toLowerCase();
+    } else {
+      return null;
+      // return 'android'.toLowerCase();
     }
-    return null;
-    // return 'android'.toLowerCase();
   }
 
   /**
@@ -35,6 +29,7 @@ class NativeAppUtils {
     } else {
       return null;
       // return 101803220305;
+      // return 101808030003;
     }
   }
 

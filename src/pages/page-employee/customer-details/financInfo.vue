@@ -1,5 +1,5 @@
 <template>
-  <div class="financ">
+  <div class="basic">
     <ul>
       <li>
         <span>订单创建时间:</span>
@@ -62,33 +62,11 @@
     methods: {
     },
     mounted() {
-      document.body.style.backgroundColor = '#eeeeee';
     },
     beforeDestroy() {
-      document.body.style.backgroundColor = '#fff';
     }
   };
 </script>
 <style lang="scss" scoped>
-  .financ{
-    padding: 0.5rem 0.3rem;
-    ul{
-      background-color: #fff;
-      padding: 0.3rem;
-      border-radius:0.2rem;
-      li{
-        margin-bottom:0.4rem;
-        span{
-          margin-right:0.2rem;
-        }
-        a{
-          color: #333;
-        }
-      }
-      li:last-child{
-        margin-bottom: 0;
-
-      }
-    }
-  }
+  @import './pubild.scss';
 </style>

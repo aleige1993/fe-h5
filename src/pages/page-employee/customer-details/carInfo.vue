@@ -1,5 +1,5 @@
 <template>
-  <div class="carInfo">
+  <div class="basic">
     <ul>
       <li>
         <span>车辆品牌:</span>
@@ -28,6 +28,7 @@
     </ul>
   </div>
 </template>
+
 <script>
   export default {
     name: 'carInfo',
@@ -38,33 +39,11 @@
     methods: {
     },
     mounted() {
-      document.body.style.backgroundColor = '#eeeeee';
     },
     beforeDestroy() {
-      document.body.style.backgroundColor = '#fff';
     }
   };
 </script>
 <style lang="scss" scoped>
-  .carInfo{
-    padding: 0.5rem 0.3rem;
-    ul{
-      background-color: #fff;
-      padding: 0.3rem;
-      border-radius:0.2rem;
-      li{
-        margin-bottom:0.4rem;
-        span{
-          margin-right:0.2rem;
-        }
-        a{
-          color: #333;
-        }
-      }
-      li:last-child{
-        margin-bottom: 0;
-
-      }
-    }
-  }
+  @import './pubild.scss';
 </style>

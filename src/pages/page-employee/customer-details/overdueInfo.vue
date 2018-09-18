@@ -5,7 +5,7 @@
       <ul>
         <li>
           <span>期数:</span>
-          <a>2/24</a>
+          <a><font>02</font>/24</a>
         </li>
         <li>
           <span>应还款日:</span>
@@ -39,7 +39,7 @@
       <ul>
         <li>
           <span>期数:</span>
-          <a>2/24</a>
+          <a><font>02</font>/24</a>
         </li>
         <li>
           <span>应还款日:</span>
@@ -77,43 +77,43 @@
       return {
       };
     },
-    methods: {
-    },
     mounted() {
-      document.body.style.backgroundColor = '#eeeeee';
+      var mun = this.$route.query.id;
+      console.log(mun);
     },
-    beforeDestroy() {
-      document.body.style.backgroundColor = '#fff';
+    methods: {
     }
   };
 </script>
 <style lang="scss" scoped>
-  .overdue:first-child{
-    padding-top: 0.5rem;
+  .overdueInfo{
+    padding:0 0.5rem;
   }
   .overdue{
-    padding:0 0.5rem 0 0.3rem;
-    margin-bottom:0.5rem;
+    border-bottom: 1px solid #e5e5e5;
     p{
-        line-height:1rem;
-        font-size:0.5rem;
+      line-height:1.2rem;
+      font-size:0.5rem;
+      text-align: center;
+      border-bottom: 1px solid #e5e5e5;
+      font-weight: 600;
     }
     ul{
-      background-color: #fff;
-      padding: 0.3rem;
-      border-radius:0.2rem;
+      padding:0.3rem 0;
       li{
-        margin-bottom:0.4rem;
+        margin-bottom:0.2rem;
         span{
           margin-right:0.2rem;
         }
         a{
           color: #333;
+          font{
+            color:#E7B24D;
+          }
         }
       }
       li:last-child{
         margin-bottom: 0;
-
       }
     }
   }

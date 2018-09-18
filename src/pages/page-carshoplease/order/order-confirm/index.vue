@@ -136,13 +136,12 @@
         let res = await this.$http.post('/store/submitOrder', this.$data.formData);
         this.$data.loading = false;
         if (res.success && res.success === 'true') {
-//          this.$router.push({
-//            name: 'carShopLeaseOrderSuccess',
-//            query: {
-//              orderNo: this.$data.formData.orderCode
-//            }
-//          });
-          window.location.replace('/#/carlease/order/success?orderNo=' + this.$data.formData.orderCode);
+          this.$router.push({
+            name: 'carShopLeaseOrderSuccess',
+            query: {
+              orderNo: this.$data.formData.orderCode
+            }
+          });
         } else {
           this.$Tools.layerOpen(res.reMsg);
         }

@@ -93,7 +93,8 @@ const MyRouter = new Router({
         { path: 'carInfo', name: 'carInfo', meta: {title: '车辆信息' },  component: resolve => { require(['@/pages/page-employee/customer-details/carInfo'], resolve)} },
         { path: 'overdueInfo', name: 'overdueInfo', meta: {title: '逾期账单' },  component: resolve => { require(['@/pages/page-employee/customer-details/overdueInfo'], resolve)} },
         { path: 'datumInfo', name: 'datumInfo', meta: {title: '融资材料' },  component: resolve => { require(['@/pages/page-employee/customer-details/datumInfo'], resolve)} },
-        { path: 'pdf', name: 'pdfInfo', meta: {title: 'pdf' },  component: resolve => { require(['@/pages/page-employee/customer-details/pdf'], resolve)} }
+        { path: 'pdf', name: 'pdfInfo', meta: {title: 'pdf' },  component: resolve => { require(['@/pages/page-employee/customer-details/pdf'], resolve)} },
+        { path: 'dispatchInfo', name: 'dispatchInfo', meta: {title: '派单信息' },  component: resolve => { require(['@/pages/page-employee/customer-details/dispatchInfo'], resolve)} }
       ]
     }
   ]

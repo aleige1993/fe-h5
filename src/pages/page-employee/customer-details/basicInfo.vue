@@ -79,36 +79,14 @@
       return {
       };
     },
-    methods: {
-    },
     mounted() {
-      document.body.style.backgroundColor = '#eeeeee';
+      var mun = this.$route.query.id;
+      console.log(mun);
     },
-    beforeDestroy() {
-      document.body.style.backgroundColor = '#fff';
+    methods: {
     }
   };
 </script>
 <style lang="scss" scoped>
-    .basic{
-      padding: 0.5rem 0.3rem;
-      ul{
-        background-color: #fff;
-        padding: 0.3rem;
-        border-radius:0.2rem;
-        li{
-          margin-bottom:0.4rem;
-          span{
-            margin-right:0.2rem;
-          }
-          a{
-            color: #333;
-          }
-        }
-        li:last-child{
-          margin-bottom: 0;
-
-        }
-      }
-    }
+  @import './pubild.scss';
 </style>

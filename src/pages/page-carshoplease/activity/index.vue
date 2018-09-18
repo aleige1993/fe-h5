@@ -9,7 +9,7 @@
           <li><span>活动名称：</span><span>{{activityInfo.saleName}}</span></li>
           <li><span>活动时间：</span><span>{{activityInfo.startTime}} - {{activityInfo.endTime}}</span></li>
           <!--<li><span>活动地点：</span><span>{{activityInfo.addr}}</span></li>-->
-          <li><span>活动规则：</span><span v-html="activityInfo.rule"></span></li>
+          <li><span>活动规则：</span><span>{{activityInfo.rule}}</span></li>
           <!--<li><span>活动流程：</span><span>{{activityInfo.expression}}</span></li>-->
         </ul>
         <div class="button">
@@ -73,7 +73,6 @@
       async initData() {
         let res = await this.$http.get('/activity/travel/getOneActivity?id=' + this.$route.query.id);
         this.$data.activityInfo = res.body;
-        this.$data.activityInfo.rule = this.$data.activityInfo.rule.replace(/\n/g, '<br />');
       }
     },
     mounted() {
