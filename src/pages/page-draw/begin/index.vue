@@ -20,11 +20,13 @@
     </div>
     <div class="luckydraw-rules">
       <div class="title"><img src="./img/rules-title.png" alt=""></div>
-      <div class="text">1.每位注册用户均有一次抽奖机会；<br />
+      <div class="text">
+        1.每位注册用户均有一次抽奖机会；<br />
         2.分享至朋友圈，即可获得一次抽奖机会；<br />
         3.成功邀请一位朋友注册，即可获得一次抽奖机会；<br />
         4.优惠券需到指定汽后厂家使用，不得兑换现金；<br />
-        5.该活动解释权归颂车网所有<span v-if="this.$Tools.isAppleBrowser()">，与苹果公司无关</span>
+        5.以上活动必须到店内进行咨询或抽奖，本店地址：重庆市渝中区罗汉沟26号附4号。<br />
+        6.该活动解释权归颂车网所有<span v-if="this.$Tools.isAppleBrowser()">，与苹果公司无关</span>
       </div>
     </div>
     <selectbrowser-modal @on-close="showModal=false" :isShow="showModal"></selectbrowser-modal>
@@ -53,20 +55,20 @@
       'selectbrowser-modal': SelectBrowserModal
     },
     methods: {
-      openApp() {
-        if (this.$Tools.isWeixinBrowser()) {
-          this.$data.showModal = true;
-        } else {
-          this.$Tools.openApp();
-        }
-      },
+//      openApp() {
+//        if (this.$Tools.isWeixinBrowser()) {
+//          this.$data.showModal = true;
+//        } else {
+//          this.$Tools.openApp();
+//        }
+//      },
       inputPhoneNo() {
         if (this.$data.drawing) {
           return false;
         }
         let _this = this;
         let btnArray = ['确定', '取消'];
-        mui.prompt('请输入您的手机号码即可开始抽奖', '', '', btnArray, function(e) {
+        mui.prompt('请输入您的手机号码', '', '', btnArray, function(e) {
           if (e.index === 0) {
             if (!e.value) {
               _this.$Tools.layerOpen('请输入您的手机号码');
@@ -104,33 +106,37 @@
           });
           if (res.body) {
             if (res.body.flag === '1') {
-              let index = this.$data.drawDataList.filter(item =>  item.id === res.body.product_id)[0].index;
-              $('#draw').draw({
-                length: _this.$data.drawDataList.length,
-                speed: { //抽奖转动的快慢范围
-                  slow: 100,
-                  fast: 50
-                },
-                loopMaxCircle: 5, // 转动圈数
-                prizeIndex: index, //奖品转到哪个单元格
-                callback: function() { // 抽到奖品的回调
-                  _this.$data.drawing = false;
-                  let prizeName = _this.$data.drawDataList[index - 1].prizeName;
-                  if (prizeName.indexOf('谢谢') > -1) {
-                    return false;
+              if (!this.$nativeAppUtils.getAPPDevice()) {
+                window.location.href = 'http://www.songcw.com/apk/downLoad.html';
+              } else {
+                let index = this.$data.drawDataList.filter(item =>  item.id === res.body.product_id)[0].index;
+                $('#draw').draw({
+                  length: _this.$data.drawDataList.length,
+                  speed: { //抽奖转动的快慢范围
+                    slow: 100,
+                    fast: 50
+                  },
+                  loopMaxCircle: 5, // 转动圈数
+                  prizeIndex: index, //奖品转到哪个单元格
+                  callback: function() { // 抽到奖品的回调
+                    _this.$data.drawing = false;
+                    let prizeName = _this.$data.drawDataList[index - 1].prizeName;
+                    if (prizeName.indexOf('谢谢') > -1) {
+                      return false;
+                    }
+                    if (_this.$nativeAppUtils.getAPPDevice()) {
+                      _this.$Tools.layerOpen(`抽中的"${prizeName}"已到你的账户`);
+                    } else {
+//                    let btnArray = ['好的', '取消'];
+//                    mui.confirm(`抽中的"${prizeName}"已到你的账户，现在打开APP使用优惠劵？`, '', btnArray, function(e) {
+//                      if (e.index === 0) {
+//                        _this.openApp();
+//                      }
+//                    });
+                    }
                   }
-                  if (_this.$nativeAppUtils.getAPPDevice()) {
-                    _this.$Tools.layerOpen(`抽中的"${prizeName}"已到你的账户`);
-                  } else {
-                    let btnArray = ['好的', '取消'];
-                    mui.confirm(`抽中的"${prizeName}"已到你的账户，现在打开APP使用优惠劵？`, '', btnArray, function(e) {
-                      if (e.index === 0) {
-                        _this.openApp();
-                      }
-                    });
-                  }
-                }
-              });
+                });
+              }
             } else {
               this.$data.drawing = false;
               this.$Tools.layerOpen(res.body.msg);
@@ -151,11 +157,12 @@
       }
     },
     mounted() {
-      if (!this.$nativeAppUtils.getAPPDevice()) {
-        window.location.href = 'http://www.songcw.com/apk/downLoad.html';
-      } else {
-        this.drawList();
-      }
+//      if (!this.$nativeAppUtils.getAPPDevice()) {
+//        window.location.href = 'http://www.songcw.com/apk/downLoad.html';
+//      } else {
+//        this.drawList();
+//      }
+      this.drawList();
     }
   };
 </script>
