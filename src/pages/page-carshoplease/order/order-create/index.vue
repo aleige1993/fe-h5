@@ -218,7 +218,7 @@
 //        this.$Tools.layerOpen(this.$nativeAppUtils.getNums());
         if (type === '1') {
           this.$data.carList = this.$data.carAllList.filter(item => item.carsName.indexOf('朗逸') > -1 ||
-            item.carsName.indexOf('华颂7') > -1 || item.carsName.indexOf('雪铁龙C3R') > -1);
+            item.carsName.indexOf('华颂7') > -1 || item.carsName.indexOf('雪铁龙C3-XR') > -1);
         } else if (type === '2') {
           if (!this.$nativeAppUtils.getNums()) {
             this.$nativeAppUtils.toLogin();
