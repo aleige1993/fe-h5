@@ -1,7 +1,7 @@
 build/*.js
 config/*.js
 node_modules/**/*.js
-src/router/index.js
+src/router/*.js
 src/App.vue
 src/main.js
 src/assets/*

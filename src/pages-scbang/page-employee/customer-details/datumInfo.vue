@@ -28,22 +28,22 @@
       <div class="datum_two" v-if="isback==2">
           <ul>
             <li>
-              <i><img src="../img/ic_liulan.png"/></i>
+              <i></i>
               <span>这是文件标题</span>
               <a>查看</a>
             </li>
             <li>
-              <i><img src="../img/ic_liulan.png"/></i>
+              <i></i>
               <span>这是文件标题</span>
               <a>查看</a>
             </li>
             <li>
-              <i><img src="../img/ic_liulan.png"/></i>
+              <i></i>
               <span>这是文件标题</span>
               <a>查看</a>
             </li>
             <li>
-              <i><img src="../img/ic_liulan.png"/></i>
+              <i></i>
               <span>这是文件标题</span>
               <a>查看</a>
             </li>
@@ -142,14 +142,13 @@
               display: inline-block;
               width:0.8rem;
               height: 0.8rem;
-              border-radius: 100%;
-              border: 1px solid #000;
+              border-radius: 100%; 
               text-align: center;
               line-height:0.8rem;
-              img{
-                width:0.4rem;
-                /*height: 0.2rem;*/
-              }
+              background:url('../img/ic_liulan.png') no-repeat ;
+              background-size: 100% 100%;
+              float:left;
+              margin-top: 0.05rem;
             }
             span{
               margin-left:0.2rem;

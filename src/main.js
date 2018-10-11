@@ -9,7 +9,6 @@ Vue.prototype.$config = Config;
 Vue.config.productionTip = false;
 // http mockjs
 import {} from './utils/HttpMock';
-
 import Tools from './utils/Tools';
 Vue.prototype.$Tools = Tools;
 // http utils
@@ -26,11 +25,8 @@ import preview from 'vue-photo-preview';
 import 'vue-photo-preview/dist/skin.css';
 var options = {
   fullscreenEl: false
-}
+};
 Vue.use(preview, options);
-//在线浏览pdf
-import pdf from '@/pages/page-employee/customer-details/pdf';
-Vue.use(pdf);
 
 /* eslint-disable no-new */
 new Vue({
