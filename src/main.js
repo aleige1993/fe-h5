@@ -14,6 +14,8 @@ Vue.prototype.$Tools = Tools;
 // http utils
 import Http from './utils/HttpUtils';
 Vue.prototype.$http = new Http();
+import Formdata from './utils/Formdata';
+Vue.prototype.$formdata = new Formdata();
 // 登录工具类
 import UserLogin from '@/utils/UserLogin';
 Vue.prototype.$userLogin = UserLogin;
