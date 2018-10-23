@@ -74,5 +74,9 @@ module.exports = [
         ]
       }
     ]
+  },
+  //颂车app-发现
+  {
+    path: '/discover', name: 'carDiscover', component: resolve => { require(['@/pages/page-discover/index'], resolve)}
   }
 ];
