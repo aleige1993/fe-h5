@@ -34,9 +34,13 @@
       }
     },
     async mounted() {
-      let res = await this.$http.get('h5/app/getBankList', {});
+//      let res = await this.$http.get('h5/app/getBankList', {});
+//      if (res.success) {
+//        this.$data.bankList = res.body;
+//      }
+      let res = await this.$formdata.post(this.$config.HTTPOPENAPIURL + '/openapi/common/banks/support', {});
       if (res.success) {
-        this.$data.bankList = res.body;
+        this.$data.bankList = res.data;
       }
     }
   };
