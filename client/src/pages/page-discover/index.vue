@@ -129,7 +129,7 @@
   };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped="">
     .mui-scroll-wrapper{
       margin-top:1.4rem;
     }
