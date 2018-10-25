@@ -82,7 +82,6 @@
         this.getHeadlineList();
       },
       getOpenUrl(url) {
-        console.log(url);
         this.$bridge.callhandler('toFindDetail', url);
       },
       pageCount(count, limit) { //获取总页数
