@@ -78,5 +78,10 @@ module.exports = [
   //颂车app-发现
   {
     path: '/discover', name: 'carDiscover', component: resolve => { require(['@/pages/page-discover/index'], resolve)}
+  },
+  //颂车app-查看资料-静态页面
+  {
+    path: '/profileView', name: 'profileView', component: resolve => { require(['@/pages/page-profileview/index'], resolve)}
   }
+
 ];

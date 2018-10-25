@@ -69,7 +69,6 @@
         let res = await this.$http.post(this.$config.HTTPCMSURL + '/headline/headlineList', req);
         if (res.success) {
           this.$data.columnList = this.$data.columnList.concat(res.body.rows);
-          console.log(this.$data.columnList);
           this.$data.Refresh = this.$data.columnList.length === 0 ? true : false;
           this.$data.Count = this.pageCount(res.body.count, this.$data.pageSize);
         }
@@ -83,7 +82,8 @@
         this.getHeadlineList();
       },
       getOpenUrl(url) {
-        window.location.href = url;
+        console.log(url);
+        this.$bridge.callhandler('toFindDetail', url);
       },
       pageCount(count, limit) { //获取总页数
         return count > 0 ? ((count < limit) ? 1 : ((count % limit) ? (parseInt(count / limit) + 1) : (count / limit))) : 0;
@@ -129,7 +129,7 @@
   };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .mui-scroll-wrapper{
       margin-top:1.4rem;
     }

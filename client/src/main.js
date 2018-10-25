@@ -22,7 +22,11 @@ Vue.prototype.$userLogin = UserLogin;
 // 与原生相互
 import NativeAppUtils from '@/utils/NativeAppUtils';
 Vue.prototype.$nativeAppUtils = NativeAppUtils;
-//预浏览图片
+// 与app搭桥通讯
+import Bridge from './utils/Bridge';
+Vue.prototype.$bridge = Bridge;
+
+// 预浏览图片
 import preview from 'vue-photo-preview';
 import 'vue-photo-preview/dist/skin.css';
 var options = {
