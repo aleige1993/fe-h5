@@ -25,7 +25,7 @@ Vue.prototype.$nativeAppUtils = NativeAppUtils;
 // 与app搭桥通讯
 import Bridge from './utils/Bridge';
 Vue.prototype.$bridge = Bridge;
-
+Vue.prototype.$bridge.initBridge();
 // 预浏览图片
 import preview from 'vue-photo-preview';
 import 'vue-photo-preview/dist/skin.css';

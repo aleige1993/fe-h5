@@ -39,10 +39,10 @@ table {
 a {
   text-decoration: none;
   color: #333;
-  &:hover {
-    color: $color-primary;
-    text-decoration: underline;
-  }
+  /*&:hover {*/
+    /*color: $color-primary;*/
+    /*text-decoration: underline;*/
+  /*}*/
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,4 +50,21 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
 }
 
+/*mui样式修改*/
+.mui-bar {
+  background-color: #3984FF!important;
+}
+.mui-icon-back:before,
+.mui-icon-left-nav:before,
+.mui-bar .mui-title,
+.mui-bar .mui-btn-link {
+  color: #fff!important;
+}
+/*.mui-title {*/
+  /*font-size: 18px!important;*/
+/*}*/
+/*.mui-bar .mui-btn-link {*/
+  /*font-size: 12px;!important;*/
+/*}*/
+/*mui样式修改*/
 

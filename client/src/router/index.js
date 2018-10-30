@@ -8,6 +8,7 @@ Vue.use(Router);
 const MyRouter = new Router({
   routes: [
     ...require('./main'),
+    ...require('./main-old'),
     ...require('./scbang')
   ]
 });
