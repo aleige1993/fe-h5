@@ -13,7 +13,7 @@ class Formdata {
    */
   post(_url, _data) {
     let _param = new FormData(); //创建form对象
-    _param.append('message',JSON.stringify(_data));//通过append向form对象添加数据
+    _param.append('message', JSON.stringify(_data));//通过append向form对象添加数据
     let _config = {
       headers: {
         'appId': config.HTTPHEADER_APPID,

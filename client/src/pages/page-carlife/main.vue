@@ -13,7 +13,7 @@
       </div>
       <ul class="main-classify">
         <li>
-          <img src="./img/list_car_wach_ic@2x.png" alt="">
+          <router-link :to="{name: 'carlifeService'}"><img src="./img/list_car_wach_ic@2x.png" alt=""></router-link>
           <p>美容洗车</p>
         </li>
         <li>
@@ -62,7 +62,7 @@
     methods: {
 //      test() {
 //        this.$bridge.callhandler('getUserInfo', {}, (data) => {
-//          alert(data);
+//          alert(typeof JSON.parse(data));
 //        });
 //      }
     },

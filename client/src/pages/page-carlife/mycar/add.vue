@@ -8,12 +8,12 @@
     <ul class="mui-content mycar-add">
       <li>
         <span class="title">车牌号</span>
-        <span class="short-name">请选择</span>
+        <span class="bottom">请选择</span>
         <input placeholder="请输入"/>
       </li>
       <li>
         <span class="title">品牌型号</span>
-        <span class="right">请选择</span>
+        <span class="bottom">请选择</span>
       </li>
     </ul>
     <div class="next-button">
@@ -27,8 +27,10 @@
     data() {
       return {};
     },
-    mounted() {
+    async mounted() {
       document.body.style.backgroundColor = '#eeeeee';
+      let res = await this.$formdata.post(this.$config.HTTPOPENAPIURL + '/openapi/common/cars/brand', {});
+      console.log(res);
     },
     beforeDestroy() {
       document.body.style.backgroundColor = '#fff';
@@ -51,10 +53,10 @@
         font-size: .4rem;
         border: none;
       }
-      .short-name, .right {
+      .bottom, .right {
         color: gray;
       }
-      .short-name:after {
+      .bottom:after {
         content: '\e581';
         font-family: Muiicons;
         font-size: inherit;
