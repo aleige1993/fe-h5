@@ -1,44 +1,43 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Config from '@/utils/Config';
-import UserLogin from '@/utils/UserLogin';
-import Http from '@/utils/HttpUtils';
+// import Bridge from '@/utils/Bridge';
+// import Config from '@/utils/Config';
+// import UserLogin from '@/utils/UserLogin';
+// import Http from '@/utils/HttpUtils';
 Vue.use(Router);
 
 const MyRouter = new Router({
   routes: [
     ...require('./main'),
-    ...require('./main-old'),
+    ...require('./main-v2'),
     ...require('./scbang')
   ]
 });
 
-const needLoginPageRouteNames = ['querySmsCode'];
+// const needLoginPageRouteNames = ['querySmsCode'];
 MyRouter.beforeEach((to, from, next) => {
-  if (Config.ENV === 'dev') {
-    next();
-    return;
-  }
+  // 设置title
   let title = '颂车';
   if (to.meta.title) {
     title = to.meta.title;
   }
   document.title = title;
+  next();
   // 如果要跳转的页面需要登录，验证登录
-  if (needLoginPageRouteNames.includes(to.name)) {
-    if (UserLogin.isLogin()) {
-      next();
-    } else {
-      next({
-        path: '/login',
-        query: {
-          redirect_url: to.name
-        }
-      });
-    }
-  } else {
-    next();
-  }
+  // if (needLoginPageRouteNames.includes(to.name)) {
+  //   if (UserLogin.isLogin()) {
+  //     next();
+  //   } else {
+  //     next({
+  //       path: '/login',
+  //       query: {
+  //         redirect_url: to.name
+  //       }
+  //     });
+  //   }
+  // } else {
+  //   next();
+  // }
 });
 
 // MyRouter.afterEach((route)=>{

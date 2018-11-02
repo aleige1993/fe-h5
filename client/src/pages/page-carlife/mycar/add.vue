@@ -30,7 +30,7 @@
     async mounted() {
       document.body.style.backgroundColor = '#eeeeee';
       let res = await this.$formdata.post(this.$config.HTTPOPENAPIURL + '/openapi/common/cars/brand', {});
-      console.log(res);
+//      alert(res);
     },
     beforeDestroy() {
       document.body.style.backgroundColor = '#fff';

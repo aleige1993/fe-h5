@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-      颂车H5页面
   </div>
 </template>
 <script>

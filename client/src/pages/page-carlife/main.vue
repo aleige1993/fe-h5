@@ -3,7 +3,7 @@
   <div id="carLifeMain">
     <header class="mui-bar mui-bar-nav">
       <!--<a class="mui-icon mui-icon-left-nav mui-pull-left"></a>-->
-      <h1 class="mui-title">车生活</h1>
+      <h1 @click="test" class="mui-title">车生活</h1>
       <router-link :to="{name: 'carlifeMycarList'}" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">车辆管理</router-link>
     </header>
     <div class="mui-content">
@@ -56,17 +56,21 @@
     name: 'carLifeMain',
     data() {
       return {
-
       };
     },
     methods: {
-//      test() {
-//        this.$bridge.callhandler('getUserInfo', {}, (data) => {
-//          alert(typeof JSON.parse(data));
-//        });
-//      }
+      test() {
+        this.$bridge.callhandler('getUserInfo', {}, (data) => {
+          alert(data);
+        });
+      }
     },
     mounted() {
+      this.$bridge.callhandler('getUserInfo', {}, async (data) => {
+        let res = await this.$formdata.post(this.$config.HTTPOPENAPIURL + '/openapi/common/cars/brand', {}, data);
+        alert(JSON.stringify(res));
+      });
+//      alert(JSON.stringify(this.$store.getters.userInfo));
 
     }
   };

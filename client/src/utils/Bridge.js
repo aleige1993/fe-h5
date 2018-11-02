@@ -1,13 +1,33 @@
 
+import Tools from './Tools';
+
 class Bridge {
   // 注册事件监听
   connectWebViewJavascriptBridge(callback) {
-    if(window.WebViewJavascriptBridge) {
-      callback(WebViewJavascriptBridge);
-    } else {
-      document.addEventListener("WebViewJavascriptBridgeReady", () => {
-        callback(WebViewJavascriptBridge);
-      }, false);
+    if (Tools.isAndroidBrowser()) {
+      if (window.WebViewJavascriptBridge) {
+        callback(window.WebViewJavascriptBridge);
+      } else {
+        document.addEventListener('WebViewJavascriptBridgeReady', () => {
+          callback(window.WebViewJavascriptBridge);
+        }, false);
+      }
+    }
+    if (Tools.isAppleBrowser()) {
+      if (window.WebViewJavascriptBridge) {
+        return callback(WebViewJavascriptBridge);
+      }
+      if (window.WVJBCallbacks) {
+        return window.WVJBCallbacks.push(callback);
+      }
+      window.WVJBCallbacks = [callback];
+      let WVJBIframe = document.createElement('iframe');
+      WVJBIframe.style.display = 'none';
+      WVJBIframe.src = 'https://__bridge_loaded__';
+      document.documentElement.appendChild(WVJBIframe);
+      setTimeout(() => {
+        document.documentElement.removeChild(WVJBIframe);
+      }, 0);
     }
   }
 
@@ -21,9 +41,6 @@ class Bridge {
 
   registerHandler(name, responseData) {
     this.connectWebViewJavascriptBridge((bridge) => {
-      bridge.init((message, responseCallback) => {
-        responseCallback();
-      });
       bridge.registerHandler(name, (data, responseCallback) => {
         responseCallback(responseData);
       });
@@ -38,6 +55,6 @@ class Bridge {
     });
   }
 
-};
+}
 
 export default new Bridge();

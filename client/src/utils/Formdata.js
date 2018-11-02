@@ -11,25 +11,26 @@ class Formdata {
    * @param _url
    * @param _data
    */
-  post(_url, _data) {
+  post(_url, _data, _userinfo) {
     let _param = new FormData(); //创建form对象
     _param.append('message', JSON.stringify(_data));//通过append向form对象添加数据
     let _config = {
       headers: {
         'appId': config.HTTPHEADER_APPID,
         'version': config.HTTPHEADER_APPVERSION,
-        'sign': config.HTTPHEADER_APPSIGN
+        'sign': config.HTTPHEADER_APPSIGN,
+        'token': JSON.parse(_userinfo).token || ''
       }
     };
     return axios.post(_url, _param, _config).then(res => {
-      let data = res.data;
-      if (data.success && data.success === 'false') {
-        Vue.prototype.$notify.error({
-          title: '提示',
-          message: data.message
-        });
-      }
-      return data;
+      // let data = res.data;
+      // if (data.success && data.success === 'false') {
+      //   Vue.prototype.$notify.error({
+      //     title: '提示',
+      //     message: data.message
+      //   });
+      // }
+      return res.data;
     }).catch(err => {});
   }
   /**
