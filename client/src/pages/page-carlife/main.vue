@@ -3,13 +3,14 @@
   <div id="carLifeMain">
     <header class="mui-bar mui-bar-nav">
       <!--<a class="mui-icon mui-icon-left-nav mui-pull-left"></a>-->
-      <h1 @click="test" class="mui-title">车生活</h1>
+      <h1 class="mui-title">车生活</h1>
       <router-link :to="{name: 'carlifeMycarList'}" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">车辆管理</router-link>
     </header>
     <div class="mui-content">
       <div class="add-car">
         <router-link :to="{name: 'carlifeMycarAdd'}" class="button"><img src="./img/add_to_ic@2x.png" alt="">添加爱车</router-link>
-        <div class="text">想要有更多的服务吗？快来添加爱车！</div>
+        <!--<div class="text">想要有更多的服务吗？快来添加爱车！</div>-->
+        <div class="text">{{this.$store.getters.userInfo}}</div>
       </div>
       <ul class="main-classify">
         <li>
@@ -56,22 +57,8 @@
     name: 'carLifeMain',
     data() {
       return {
+        message: ''
       };
-    },
-    methods: {
-      test() {
-        this.$bridge.callhandler('getUserInfo', {}, (data) => {
-          alert(data);
-        });
-      }
-    },
-    mounted() {
-      this.$bridge.callhandler('getUserInfo', {}, async (data) => {
-        let res = await this.$formdata.post(this.$config.HTTPOPENAPIURL + '/openapi/common/cars/brand', {}, data);
-        alert(JSON.stringify(res));
-      });
-//      alert(JSON.stringify(this.$store.getters.userInfo));
-
     }
   };
 </script>

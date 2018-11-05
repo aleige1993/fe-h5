@@ -1,6 +1,6 @@
 
 <template>
-  <div id="carLife">
+  <div class="no-title" id="carLife">
     <router-view></router-view>
   </div>
 </template>

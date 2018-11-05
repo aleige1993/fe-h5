@@ -14,13 +14,13 @@ module.exports = [
   {
     path: '/carlife', name: 'carLife', component: resolve => { require(['@/pages/page-carlife'], resolve)},
     children: [
-      {path: 'index', name: 'carlifeIndex', component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
+      {path: 'index', name: 'carlifeIndex', meta: {needUserInfo: true}, component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
       {path: 'service', name: 'carlifeService', component: resolve => { require(['@/pages/page-carlife/service'], resolve)}},
       {
         path: 'mycar', name: 'carlifeMycar', component: resolve => { require(['@/pages/page-carlife/mycar'], resolve)},
         children: [
           {path: 'list', name: 'carlifeMycarList', component: resolve => { require(['@/pages/page-carlife/mycar/list'], resolve)}},
-          {path: 'add', name: 'carlifeMycarAdd', component: resolve => { require(['@/pages/page-carlife/mycar/add'], resolve)}},
+          {path: 'add', name: 'carlifeMycarAdd', component: resolve => { require(['@/pages/page-carlife/mycar/add'], resolve)}}
         ]
       }
     ]

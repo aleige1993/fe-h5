@@ -27,10 +27,8 @@
     data() {
       return {};
     },
-    async mounted() {
+    mounted() {
       document.body.style.backgroundColor = '#eeeeee';
-      let res = await this.$formdata.post(this.$config.HTTPOPENAPIURL + '/openapi/common/cars/brand', {});
-//      alert(res);
     },
     beforeDestroy() {
       document.body.style.backgroundColor = '#fff';
