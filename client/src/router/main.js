@@ -1,6 +1,7 @@
 
 module.exports = [
   { path: '/', name: 'home', component: resolve => { require(['@/pages/page-home'], resolve)} },
+
   // 支持银行
   { path: '/supportbank', name: 'supportBank', meta: {title: '支持银行卡'}, component: resolve => { require(['@/pages/page-supportbank'], resolve)} },
   { path: '/supportbankInView', name: 'supportBank', props: {view: 'in'}, meta: {title: '支持银行卡'}, component: resolve => { require(['@/pages/page-supportbank'], resolve)} },

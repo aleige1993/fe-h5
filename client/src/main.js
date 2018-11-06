@@ -44,8 +44,8 @@ let options = {
 Vue.use(preview, options);
 
 // 在线浏览pdf
-import pdf from '@/pages-scbang/page-employee/customer-details/pdf';
-Vue.use(pdf);
+// import pdf from '@/pages-scbang/page-employee/customer-details/pdf';
+// Vue.use(pdf);
 
 new Vue({
   el: '#app',
