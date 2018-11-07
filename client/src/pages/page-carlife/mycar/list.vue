@@ -41,10 +41,23 @@
 </script>
 <style lang="scss" scoped="">
   .mycar-list li{
+    position: relative;
     display: flex;
     align-items: center;
-    padding: .2rem;
+    padding: .2rem .8rem .2rem .2rem;
     border-bottom: 1px solid #e5e5e5;
+    &:after {
+      display: inline-block;
+      content: '\e583';
+      position: absolute;
+      top: 50%;
+      right: .2rem;
+      margin-top: -.3rem;
+      font-family: Muiicons;
+      font-size: .6rem;
+      line-height: 1;
+      color: #bbb;
+    }
     img {
       height: 1.6rem;
     }

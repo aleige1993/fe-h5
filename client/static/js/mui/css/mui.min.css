@@ -2263,6 +2263,7 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
     bottom: 0;
     left: 15px;
 
+    width: calc(100% - 40px);
     height: 1px;
 
     content: '';
@@ -2897,7 +2898,7 @@ input[type='search']
             box-sizing: border-box;
     height: 34px;
 
-    text-align: center;
+    /*text-align: center;*/
 
     border: 0;
     border-radius: 6px;
@@ -3364,7 +3365,8 @@ select:focus
 }
 .mui-search input[type='search']
 {
-    padding-left: 30px;
+  width: 100%;
+  padding-left: 10px;
 }
 .mui-search .mui-placeholder
 {

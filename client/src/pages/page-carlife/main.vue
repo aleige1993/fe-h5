@@ -9,8 +9,8 @@
     <div class="mui-content">
       <div class="add-car">
         <router-link :to="{name: 'carlifeMycarAdd'}" class="button"><img src="./img/add_to_ic@2x.png" alt="">添加爱车</router-link>
-        <!--<div class="text">想要有更多的服务吗？快来添加爱车！</div>-->
-        <div class="text">{{this.$store.getters.userInfo}}</div>
+        <div class="text">想要有更多的服务吗？快来添加爱车！</div>
+        <!--<div class="text">{{this.$store.getters.userInfo}}</div>-->
       </div>
       <ul class="main-classify">
         <li>

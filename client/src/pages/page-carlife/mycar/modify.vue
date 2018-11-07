@@ -13,19 +13,46 @@
       </li>
       <li>
         <span class="title">品牌型号</span>
-        <span class="bottom">请选择</span>
+        <!--<span>{{carValue}}</span>-->
+        <span @click="showCarModel = true" class="bottom">请选择</span>
+      </li>
+      <li>
+        <span class="title">车架号</span>
+        <input placeholder="请输入车架号"/>
+      </li>
+      <li>
+        <span class="title">发动机号</span>
+        <input placeholder="请输入发动机号"/>
       </li>
     </ul>
     <div class="next-button">
       <div>保存</div>
     </div>
+    <select-carmodel class="select-carmodel" v-if="showCarModel"
+                     @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
   </div>
 </template>
 <script>
+  import SelectCarmodel from "../../../components/select-carmodel/index.vue";
   export default {
     name: 'carLife-myCarList',
     data() {
-      return {};
+      return {
+        showCarModel: false,
+        carValue: {}
+      };
+    },
+    components: {
+      SelectCarmodel
+    },
+    methods: {
+      closeCarModel() {
+        this.$data.showCarModel = false;
+      },
+      getCarValue(carValue) {
+        this.$data.carValue = carValue;
+        this.$data.showCarModel = false;
+      }
     },
     mounted() {
       document.body.style.backgroundColor = '#eeeeee';
@@ -39,8 +66,8 @@
   .mycar-add {
     background: #fff;
     li {
-      padding: 0 .4rem;
-      line-height: 1.2rem;
+      padding: .2rem .4rem;
+      line-height: .7rem;
       border-bottom: 1px solid #e5e5e5;
       .title {
         display: inline-block;
@@ -71,13 +98,21 @@
     bottom: 0;
     z-index: 9;
     div {
-      height: 1.2rem;
+      height: 1.1rem;
       margin: .4rem;
-      line-height: 1.2rem;
+      line-height: 1.1rem;
       text-align: center;
       color: #fff;
       background: #2193fc;
       border-radius: .1rem;
     }
+  }
+  .select-carmodel {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
   }
 </style>

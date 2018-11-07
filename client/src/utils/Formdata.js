@@ -2,8 +2,9 @@
 import axios from 'axios';
 import config from './Config';
 import store from '@/store';
+import Tools from './Tools';
 
-// axios.defaults.baseURL = config.HTTPOPENAPIURL;
+axios.defaults.baseURL = config.HTTPOPENAPIURL;
 axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
 
 class Formdata {
@@ -24,14 +25,11 @@ class Formdata {
       }
     };
     return axios.post(_url, _param, _config).then(res => {
-      // let data = res.data;
-      // if (data.success && data.success === 'false') {
-      //   Vue.prototype.$notify.error({
-      //     title: '提示',
-      //     message: data.message
-      //   });
-      // }
-      return res.data;
+      let data = res.data;
+      if (data.success && data.success === 'false') {
+        Tools.layerOpen(data.message);
+      }
+      return data;
     }).catch(err => {});
   }
   /**
