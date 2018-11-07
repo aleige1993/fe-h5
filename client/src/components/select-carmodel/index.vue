@@ -9,7 +9,7 @@
       <div id="select-carmodel-list" class="mui-indexed-list">
         <div id="select-carmodel-top">
           <div class="mui-indexed-list-search mui-input-row mui-search">
-            <input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索品牌">
+            <input v-model="searchValue" type="search" class="mui-input-clear" placeholder="搜索品牌">
           </div>
           <div class="mui-indexed-list-bar">
             <a v-if="list.groupName" v-for="list in carBrandList">{{list.groupName}}</a>
@@ -56,7 +56,8 @@
           seriesName: '',
           modelNo: '',
           modelName: ''
-        }
+        },
+        searchValue: ''
       };
     },
     methods: {
@@ -95,7 +96,9 @@
         }
       },
       async getBrandList() {
-        let res = await this.$formdata.post('/openapi/common/cars/brand', {});
+        let res = await this.$formdata.post('/openapi/common/cars/brand', {
+          brandName: this.$data.searchValue
+        });
         if (res.success && res.success === 'true') {
           this.$data.carBrandList = res.data.resultList;
           this.$nextTick(() => {
@@ -114,6 +117,9 @@
       'selectStep'(val) {
         document.getElementById('select-carmodel-top').style.display = val === 0 ? 'block' : 'none';
         document.getElementById('select-carmodel-inner').style.marginTop = val === 0 ? '0' : '10px';
+      },
+      'searchValue'() {
+        this.getBrandList();
       }
     },
     mounted() {
