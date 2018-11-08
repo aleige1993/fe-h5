@@ -15,7 +15,7 @@ module.exports = [
   {
     path: '/carlife', name: 'carLife', component: resolve => { require(['@/pages/page-carlife'], resolve)},
     children: [
-      {path: 'index', name: 'carlifeIndex', meta: {needUserInfo: false}, component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
+      {path: 'index', name: 'carlifeIndex', component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
       {path: 'service', name: 'carlifeService', component: resolve => { require(['@/pages/page-carlife/service'], resolve)}},
       {
         path: 'mycar', name: 'carlifeMycar', component: resolve => { require(['@/pages/page-carlife/mycar'], resolve)},
