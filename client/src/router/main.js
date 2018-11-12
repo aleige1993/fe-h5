@@ -16,7 +16,6 @@ module.exports = [
     path: '/carlife', name: 'carLife', component: resolve => { require(['@/pages/page-carlife'], resolve)},
     children: [
       {path: 'index', name: 'carlifeIndex', component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
-      {path: 'service', name: 'carlifeService', component: resolve => { require(['@/pages/page-carlife/service'], resolve)}},
       {
         path: 'mycar', name: 'carlifeMycar', component: resolve => { require(['@/pages/page-carlife/mycar'], resolve)},
         children: [
@@ -24,7 +23,14 @@ module.exports = [
           {path: 'add', name: 'carlifeMycarAdd', component: resolve => { require(['@/pages/page-carlife/mycar/modify'], resolve)}},
           {path: 'modify', name: 'carlifeMycarModify', component: resolve => { require(['@/pages/page-carlife/mycar/modify'], resolve)}}
         ]
-      }
+      },
+      {
+        path: 'service', name: 'carlifeService', component: resolve => { require(['@/pages/page-carlife/service'], resolve)},
+        children: [
+          {path: 'list', name: 'carlifeServiceList', component: resolve => { require(['@/pages/page-carlife/service/list'], resolve)}},
+          {path: 'detail', name: 'carlifeServiceDetail', component: resolve => { require(['@/pages/page-carlife/service/detail'], resolve)}}
+        ]
+      },
     ]
   }
 ];

@@ -20,16 +20,17 @@ MyRouter.beforeEach((to, from, next) => {
   let meta = to.meta;
   // 设置title
   document.title = meta.title || '颂车';
-  if (meta.needUserInfo) {
-    setTimeout(() => {
-      Bridge.callhandler('getUserInfo', {}, (data) => {
-        Store.dispatch('setUserInfo', {token: '123456'});
-        next();
-      });
-    }, 200);
-  } else {
-    next();
-  }
+  // if (meta.needUserInfo) {
+  //   setTimeout(() => {
+  //     Bridge.callhandler('getUserInfo', {}, (data) => {
+  //       Store.dispatch('setUserInfo', {token: '123456'});
+  //       next();
+  //     });
+  //   }, 200);
+  // } else {
+  //   next();
+  // }
+  next();
 });
 
 // MyRouter.afterEach((route)=>{

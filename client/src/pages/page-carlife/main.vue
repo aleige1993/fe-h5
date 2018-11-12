@@ -14,7 +14,7 @@
       </div>
       <ul class="carlife-grid">
         <li>
-          <router-link :to="{name: 'carlifeService'}"><img src="./img/list_car_wach_ic@2x.png" alt=""></router-link>
+          <router-link :to="{name: 'carlifeServiceList'}"><img src="./img/list_car_wach_ic@2x.png" alt=""></router-link>
           <p>美容洗车</p>
         </li>
         <li>
