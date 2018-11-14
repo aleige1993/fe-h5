@@ -82,10 +82,11 @@
   }
   .carlife-grid {
     display: flex;
-    width: 100%;
-    margin: .14rem 0;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+    margin: .14rem 0;
+    padding: .2rem 0;
     background: #fff;
     li {
       width: 25%;
