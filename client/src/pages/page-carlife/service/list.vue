@@ -18,54 +18,68 @@
         <div class="swiper-pagination"></div>
       </div>
       <div class="service-list">
-        <div class="service-title">
-          <span>附近门店</span><span class="right">全部门店</span>
+        <div class="title">
+          <span class="left">附近门店</span><span class="right">全部门店<img class="icon" src="../img/arrow_right_gray.png" alt=""></span>
         </div>
         <ul>
           <li>
-            <div class="service-main-top">
-              <img src="../img/muwu.jpg" alt="">
-              <div class="text">
-                <p>重庆市江北区卡娃汽车维修服务部</p>
-                <p><span class="label">维修保养</span><span class="label">美容改装</span></p>
-                <p>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                </p>
-              </div>
-            </div>
-            <div class="service-main-bottom">
-              <p><span class="mui-icon mui-icon-eye"></span>营业时间:800-22:00</p>
+            <img class="img" src="../img/muwu.jpg" alt="">
+            <div class="text">
+              <h1>重庆市江北区卡娃汽车维修服务部</h1>
               <p>
-                <span class="mui-icon mui-icon-location"></span>重庆市江北区观音桥1km
-                <span class="label">前往导航</span>
+                <span class="label">维修保养</span><span class="label">美容改装</span>
+                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
               </p>
+              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
+              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
             </div>
           </li>
           <li>
-            <div class="service-main-top">
-              <img src="../img/muwu.jpg" alt="">
-              <div class="text">
-                <p>重庆市江北区卡娃汽车维修服务部</p>
-                <p><span class="label">维修保养</span><span class="label">美容改装</span></p>
-                <p>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                  <span class="mui-icon mui-icon-star"></span>
-                </p>
-              </div>
-            </div>
-            <div class="service-main-bottom">
-              <p><span class="mui-icon mui-icon-eye"></span>营业时间:800-22:00</p>
+            <img class="img" src="../img/muwu.jpg" alt="">
+            <div class="text">
+              <h1>重庆市江北区卡娃汽车维修服务部</h1>
               <p>
-                <span class="mui-icon mui-icon-location"></span>重庆市江北区观音桥1km
-                <span class="label">前往导航</span>
+                <span class="label">维修保养</span><span class="label">美容改装</span>
+                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
               </p>
+              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
+              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
+            </div>
+          </li>
+          <li>
+            <img class="img" src="../img/muwu.jpg" alt="">
+            <div class="text">
+              <h1>重庆市江北区卡娃汽车维修服务部</h1>
+              <p>
+                <span class="label">维修保养</span><span class="label">美容改装</span>
+                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
+              </p>
+              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
+              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
+            </div>
+          </li>
+          <li>
+            <img class="img" src="../img/muwu.jpg" alt="">
+            <div class="text">
+              <h1>重庆市江北区卡娃汽车维修服务部</h1>
+              <p>
+                <span class="label">维修保养</span><span class="label">美容改装</span>
+                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
+              </p>
+              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
+              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
+            </div>
+          </li>
+          <li>
+            <img class="img" src="../img/muwu.jpg" alt="">
+            <div class="text">
+              <h1>重庆市江北区卡娃汽车维修服务部</h1>
+              <p>
+                <span class="label">维修保养</span><span class="label">美容改装</span>
+                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
+              </p>
+              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
+              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
             </div>
           </li>
         </ul>
@@ -73,6 +87,97 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped="">
+  .swiper-container,
+  .swiper-container img {
+    width: 100%;
+    height: 4rem;
+  }
+  .service-list {
+    margin: 0 .4rem;
+    .icon {
+      height: .28rem;
+    }
+    .title {
+      margin-top: .2rem;
+      .left {
+        font-size: .4rem;
+        font-weight: bold;
+      }
+      .right, .right .icon {
+        vertical-align: middle;
+      }
+      .right {
+        float: right;
+        color: #707070;
+        .icon {
+          margin-left: 2px;
+        }
+      }
+    }
+    li {
+      position: relative;
+      padding: .34rem 0 .34rem 3.2rem;
+      border-bottom: 1px solid #EEEEEE;
+      .img {
+        position: absolute;
+        top: .4rem;
+        left: 0;
+        width: 3rem;
+        height: 2.4rem;
+      }
+      h1 {
+        font-size: .34rem;
+        font-weight: bold;
+      }
+      p, p * {
+        vertical-align: middle;
+      }
+      p {
+        margin-top: 5px;
+        font-size: .34rem;
+        color: #313131;
+        .label, .button {
+          font-size: .32rem;
+          border-radius: 4px;
+        }
+        .label {
+          margin-right: 2px;
+          padding: 0 2px;
+          color: #A0A0A0;
+          border: 1px solid #DCDCDC;
+          border-radius: 4px;
+        }
+        .icon {
+          margin-right: 2px;
+        }
+        &:last-child {
+          position: relative;
+          .address {
+            display: inline-block;
+            width: 12em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: .34rem;
+          }
+          .button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            width: 5em;
+            font-size: .34rem;
+            text-align: center;
+            color: #fff;
+            background: #3984FF;
+          }
+        }
+      }
+    }
+  }
+</style>
 
 <script>
   import Swiper from 'swiper';
@@ -94,59 +199,3 @@
     }
   };
 </script>
-
-<style lang="scss" scoped="">
-  .swiper-slide img {
-    width: 100%;
-    height: 4rem;
-  }
-  .service-list {
-    padding: .2rem;
-    li {
-      margin-bottom: .2rem;
-      padding-top: .2rem;
-      border-top: 1px dashed #d2d2d2;
-    }
-    p {
-      margin-bottom: .1rem;
-    }
-    .mui-icon {
-      font-size: .48rem;
-    }
-    .label {
-      padding: 0 .1rem;
-      border: 1px solid #d2d2d2;
-      border-radius: .1rem;
-    }
-  }
-  .service-title {
-    margin-bottom: .2rem;
-    .right {
-      float: right;
-    }
-  }
-  .service-main-top {
-    display: flex;
-    align-items: center;
-    margin-bottom: .2rem;
-    > img {
-      width: 3rem;
-      height: 2rem;
-      margin-right: .2rem;
-    }
-    .label {
-      margin-right: .1rem;
-    }
-  }
-  .service-main-bottom {
-    p {
-      position: relative;
-      padding-right: 5em;
-      .label {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-    }
-  }
-</style>

@@ -18,31 +18,89 @@
         <div class="swiper-pagination"></div>
       </div>
       <div class="service-info">
-        <p>重庆市江北区卡娃汽车维修服务部</p>
+        <p class="title">
+          重庆市江北区卡娃汽车维修服务部
+          <img src="../img/ic_star_whole.png" alt=""><img src="../img/ic_star_whole.png" alt=""><img src="../img/ic_star_whole.png" alt=""><img src="../img/ic_star_whole.png" alt=""><img src="../img/ic_star_whole.png" alt=""></p>
         <p>
-          <span class="mui-icon mui-icon-starhalf"></span>
-          <span class="mui-icon mui-icon-star"></span>
-          <span class="mui-icon mui-icon-star"></span>
-          <span class="mui-icon mui-icon-star"></span>
-          <span class="mui-icon mui-icon-star"></span>
-          <span class="mui-icon mui-icon-star"></span>
+          <img src="../img/ic_time.png" alt="">营业时间:800-22:00
         </p>
         <p>
-          <span class="mui-icon mui-icon-eye"></span>
-          营业时间:800-22:00
-        </p>
-        <p>
-          <span class="mui-icon mui-icon-location"></span>
-          重庆市江北区观音桥1km
+          <img src="../img/ic_location.png" alt="">重庆市江北区观音桥1km
         </p>
       </div>
-      <div class="service-content">
-        <h1>服务内容</h1>
-        <p>服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容服务内容</p>
+      <div class="service-info">
+        <p class="title">服务内容</p>
+        <p class="gray">服务内容</p>
       </div>
+    </div>
+    <div class="next-button">
+      <span>一键投诉</span><span>前往导航</span>
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped="">
+  .mui-content {
+    padding-bottom: 1.8rem;
+  }
+  .swiper-container,
+  .swiper-container img {
+    width: 100%;
+    height: 4rem;
+  }
+  .service-info {
+    margin-bottom: .2rem;
+    padding: .3rem .4rem;
+    background: #fff;
+    p, p * {
+      vertical-align: middle;
+    }
+    p {
+      font-size: .34rem;
+      &:first-child {
+        margin-bottom: 5px;
+      }
+      &.title {
+        font-size: .36rem;
+        font-weight: bold;
+      }
+      &.gray {
+        color: gray;
+      }
+      img {
+        height: .28rem;
+        margin-right: 2px;
+      }
+    }
+  }
+  .next-button {
+    display: inline-flex;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    background: #fff;
+    padding: .4rem;
+    span {
+      display: inline-block;
+      width: 100%;
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+      color: #fff;
+      background: #3984FF;
+      border-radius: .1rem;
+      &:first-child {
+        margin-right: .2rem;
+      }
+      &:last-child {
+        margin-left: .2rem;
+        background: #FFC939;
+      }
+    }
+  }
+</style>
 
 <script>
   import Swiper from 'swiper';
@@ -55,37 +113,17 @@
       };
     },
     mounted() {
+      document.body.style.backgroundColor = '#eeeeee';
       new Swiper('.swiper-container', {
         autoplay: 5000,
         loop: true,
         visibilityFullFit: true,
         pagination: '.swiper-pagination'
       });
+    },
+    beforeDestroy() {
+      document.body.style.backgroundColor = '#fff';
     }
   };
 </script>
 
-<style lang="scss" scoped="">
-  .swiper-slide img {
-    width: 100%;
-    height: 4rem;
-  }
-  .service-info {
-    padding: .2rem .4rem;
-    p {
-      margin-bottom: .1rem;
-    }
-    .mui-icon {
-      font-size: .48rem;
-    }
-    .label {
-      padding: 0 .1rem;
-      border: 1px solid #d2d2d2;
-      border-radius: .1rem;
-    }
-  }
-  .service-content {
-    padding: .2rem .4rem;
-    background: #eee;
-  }
-</style>
