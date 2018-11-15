@@ -39,7 +39,8 @@ module.exports = [
         path: 'detail', name: 'buyCarDetail', component: resolve => { require(['@/pages/page-buycar/detail'], resolve)},
         children: [
           {path: 'carconf', name: 'buyCarDetailCarConf', component: resolve => { require(['@/pages/page-buycar/detail/carconf'], resolve)}},
-          {path: 'buyintro', name: 'buyCarDetailBuyIntro', component: resolve => { require(['@/pages/page-buycar/detail/buyintro'], resolve)}}
+          {path: 'buyintro', name: 'buyCarDetailBuyIntro', component: resolve => { require(['@/pages/page-buycar/detail/buyintro'], resolve)}},
+          {path: 'buyplan', name: 'buyCarDetailBuyPlan', component: resolve => { require(['@/pages/page-buycar/detail/buyplan'], resolve)}}
         ]
       }
     ]
