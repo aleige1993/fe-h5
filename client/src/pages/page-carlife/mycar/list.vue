@@ -10,21 +10,21 @@
       <li>
         <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
         <div class="text">
-          <p>渝BTD123</p>
-          <p>大众桑塔纳 2016款1.6L 自动风尚版</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
-        <div class="text">
-          <p>渝BTD123</p>
+          <h1>渝BTD123</h1>
           <p>大众桑塔纳 2016款1.6L 自动风尚版大众桑塔纳 2016款1.6L 自动风尚版</p>
         </div>
       </li>
       <li>
         <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
         <div class="text">
-          <p>渝BTD123</p>
+          <h1>渝BTD123</h1>
+          <p>大众桑塔纳 2016款1.6L 自动风尚版大众桑塔纳 2016款1.6L 自动风尚版</p>
+        </div>
+      </li>
+      <li>
+        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
+        <div class="text">
+          <h1>渝BTD123</h1>
           <p>大众桑塔纳 2016款1.6L 自动风尚版大众桑塔纳 2016款1.6L 自动风尚版</p>
         </div>
       </li>
@@ -43,28 +43,22 @@
   .mycar-list li{
     position: relative;
     display: flex;
-    align-items: center;
-    padding: .2rem .8rem .2rem .2rem;
-    border-bottom: 1px solid #e5e5e5;
-    &:after {
-      display: inline-block;
-      content: '\e583';
-      position: absolute;
-      top: 50%;
-      right: .2rem;
-      margin-top: -.3rem;
-      font-family: Muiicons;
-      font-size: .6rem;
-      line-height: 1;
-      color: #bbb;
-    }
+    padding: .4rem;
+    border-bottom: 1px solid #EEEEEE;
     img {
+      width: 2.2rem;
       height: 1.6rem;
     }
     .text {
-      margin-left: .4rem;
-      p {
+      margin-left: .3rem;
+      h1 {
+        margin-bottom: 5px;
         font-size: .38rem;
+        font-weight: bold;
+      }
+      p {
+        font-size: .34rem;
+        color: gray;
       }
     }
   }
