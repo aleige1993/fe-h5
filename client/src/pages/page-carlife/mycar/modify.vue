@@ -9,8 +9,8 @@
       <li>
         <label class="title">车牌号</label>
         <span class="right">
-          <span class="arrow bottom">请选择</span>
-          <input placeholder="请输入"/>
+          <span @click="showShortNameModal = true" class="arrow bottom car-shortname">{{carShortName}}</span>
+          <input class="car-id" placeholder="请输入车牌号" value=""/>
         </span>
       </li>
       <li>
@@ -35,11 +35,52 @@
     <div class="next-button">
       <div>保存</div>
     </div>
-    <select-carmodel class="select-carmodel" v-if="showCarModel"
-                     @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
+    <template v-if="showShortNameModal">
+      <select-cityshortname :name="carShortName" @on-select="getCarShortName" class="select-cityshortname"></select-cityshortname>
+      <div @click="showShortNameModal = false" class="fullscreen-mask"></div>
+    </template>
+    <select-carmodel class="select-carmodel" v-if="showCarModel" @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
   </div>
 </template>
 
+<script>
+  import SelectCityshortname from "../../../components/select-cityshortname/index.vue";
+  import SelectCarmodel from "../../../components/select-carmodel/index.vue";
+  export default {
+    name: 'carLife-myCarList',
+    data() {
+      return {
+        showShortNameModal: false,
+        showCarModel: false,
+        carShortName: '渝',
+        carBrandValue: {}
+      };
+    },
+    components: {
+      SelectCityshortname,
+      SelectCarmodel
+    },
+    methods: {
+      getCarShortName(name) {
+        this.$data.carShortName = name;
+        this.$data.showShortNameModal = false;
+      },
+      getCarValue(value) {
+        this.$data.carBrandValue = value;
+        this.closeCarModel();
+      },
+      closeCarModel() {
+        this.$data.showCarModel = false;
+      }
+    },
+    mounted() {
+      document.body.style.backgroundColor = '#eeeeee';
+    },
+    beforeDestroy() {
+      document.body.style.backgroundColor = '#fff';
+    }
+  };
+</script>
 
 <style lang="scss" scoped="">
   .mycar-modify {
@@ -57,20 +98,28 @@
       .right {
         width: 100%;
         text-align: right;
+        input::-webkit-input-placeholder,  .arrow{
+          color: gray;
+        }
         input {
           display: inline-block;
           height: .6rem;
           line-height: .6rem;
-          font-size: .4rem;
+          font-size: .38rem;
           text-align: right;
           border: none;
+          &.car-id {
+            width: 6em;
+          }
         }
-        .arrow:after {
-          font-family: Muiicons;
-          font-size: inherit;
-          line-height: 1;
-          display: inline-block;
-          color: #bbb;
+        .arrow {
+          &:after {
+            font-family: Muiicons;
+            font-size: inherit;
+            line-height: 1;
+            display: inline-block;
+            color: #bbb;
+          }
         }
         .bottom:after {
           content: '\e581';
@@ -79,26 +128,6 @@
           content: '\e583';
         }
       }
-      /*.title {*/
-        /*display: inline-block;*/
-        /*width: 5em;*/
-      /*}*/
-      /*input {*/
-        /*width: 10em;*/
-        /*font-size: .4rem;*/
-        /*border: none;*/
-      /*}*/
-      /*.bottom, .right {*/
-        /*color: gray;*/
-      /*}*/
-      /*.bottom:after {*/
-        /*content: '\e581';*/
-        /*font-family: Muiicons;*/
-        /*font-size: inherit;*/
-        /*line-height: 1;*/
-        /*display: inline-block;*/
-        /*color: #bbb;*/
-      /*}*/
     }
   }
   .next-button {
@@ -117,44 +146,15 @@
       border-radius: .1rem;
     }
   }
-  .select-carmodel {
+  .select-cityshortname, .select-carmodel {
     position: fixed;
     width: 100%;
-    height: 100%;
     left: 0;
     bottom: 0;
     z-index: 99;
   }
+  .select-carmodel {
+    height: 100%;
+  }
 </style>
-
-<script>
-  import SelectCarmodel from "../../../components/select-carmodel/index.vue";
-  export default {
-    name: 'carLife-myCarList',
-    data() {
-      return {
-        showCarModel: false,
-        carValue: {}
-      };
-    },
-    components: {
-      SelectCarmodel
-    },
-    methods: {
-      closeCarModel() {
-        this.$data.showCarModel = false;
-      },
-      getCarValue(carValue) {
-        this.$data.carValue = carValue;
-        this.$data.showCarModel = false;
-      }
-    },
-    mounted() {
-      document.body.style.backgroundColor = '#eeeeee';
-    },
-    beforeDestroy() {
-      document.body.style.backgroundColor = '#fff';
-    }
-  };
-</script>
 

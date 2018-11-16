@@ -1,6 +1,5 @@
 
 class Tools {
-
   /**
    * 获取浏览器信息
    * @returns {string}
@@ -29,15 +28,12 @@ class Tools {
     var docElm = document.documentElement;
     if (docElm.requestFullscreen) {
       docElm.requestFullscreen();
-    }
-    else if (docElm.msRequestFullscreen) {
-      docElm = document.body; //overwrite the element (for IE)
+    } else if (docElm.msRequestFullscreen) {
+      docElm = document.body; // overwrite the element (for IE)
       docElm.msRequestFullscreen();
-    }
-    else if (docElm.mozRequestFullScreen) {
+    } else if (docElm.mozRequestFullScreen) {
       docElm.mozRequestFullScreen();
-    }
-    else if (docElm.webkitRequestFullScreen) {
+    } else if (docElm.webkitRequestFullScreen) {
       docElm.webkitRequestFullScreen();
     }
   }
