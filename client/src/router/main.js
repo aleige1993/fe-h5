@@ -55,8 +55,8 @@ module.exports = [
         path: 'mycar', name: 'carlifeMycar', component: resolve => { require(['@/pages/page-carlife/mycar'], resolve)},
         children: [
           {path: 'list', name: 'carlifeMycarList', component: resolve => { require(['@/pages/page-carlife/mycar/list'], resolve)}},
-          {path: 'add', name: 'carlifeMycarAdd', component: resolve => { require(['@/pages/page-carlife/mycar/modify'], resolve)}},
-          {path: 'modify', name: 'carlifeMycarModify', component: resolve => { require(['@/pages/page-carlife/mycar/modify'], resolve)}}
+          {path: 'add', name: 'carlifeMycarAdd', props: {isAdd: true}, component: resolve => { require(['@/pages/page-carlife/mycar/modify'], resolve)}},
+          {path: 'modify', name: 'carlifeMycarModify', props: {isAdd: false}, component: resolve => { require(['@/pages/page-carlife/mycar/modify'], resolve)}}
         ]
       },
       {

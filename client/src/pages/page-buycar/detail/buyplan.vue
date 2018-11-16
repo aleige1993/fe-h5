@@ -1,51 +1,15 @@
 
 <template>
   <div id="buycar-detail-buyplan" class="buyplan">
-    <h1>48期方案</h1>
-    <ul>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-    </ul>
-    <h1>48期方案</h1>
-    <ul>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-    </ul>
-    <h1>48期方案</h1>
-    <ul>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-      <li>
-        <p><span>1万</span><span>1799元</span><span>48期</span></p>
-        <p><span>首付（10%）</span><span>月付</span><span>期数</span></p>
-      </li>
-    </ul>
+    <template v-for="item in buyPlanList">
+      <h1>{{item.name}}期方案</h1>
+      <ul>
+        <li v-for="(list, index) in item.list">
+          <p><span>{{list.downPaymentRatio}}元</span><span>{{list.monthPayment}}元</span><span>{{list.clyle}}期</span></p>
+          <p><span>首付（{{10 * (index + 1)}}%）</span><span>月付</span><span>期数</span></p>
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
@@ -54,11 +18,17 @@
     name: 'buyCarDetailBuyIntro',
     data() {
       return {
-
+        buyPlanList: []
       };
     },
-    mounted() {
+    async mounted() {
       document.body.style.backgroundColor = '#eeeeee';
+      let res = await this.$formdata.post('/openapi/ces/cars/more', {
+        price: this.$route.query.price / 1
+      });
+      if (res.success && res.success === 'true') {
+        this.$data.buyPlanList = res.data;
+      }
     },
     beforeDestroy() {
       document.body.style.backgroundColor = '#fff';

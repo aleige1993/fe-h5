@@ -4,6 +4,9 @@
     <header class="mui-bar mui-bar-nav">
       <router-link :to="{name: 'carlifeIndex'}" class="mui-icon mui-icon-left-nav mui-pull-left"></router-link>
       <h1 class="mui-title">美容洗车</h1>
+      <span @click="showCarModel = true" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">
+        重庆市<span class="mui-icon mui-icon-arrowdown"></span>
+      </span>
     </header>
     <div class="mui-content">
       <div class="swiper-container">
@@ -34,61 +37,43 @@
               <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
             </div>
           </li>
-          <li>
-            <img class="img" src="../img/muwu.jpg" alt="">
-            <div class="text">
-              <h1>重庆市江北区卡娃汽车维修服务部</h1>
-              <p>
-                <span class="label">维修保养</span><span class="label">美容改装</span>
-                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
-              </p>
-              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
-              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
-            </div>
-          </li>
-          <li>
-            <img class="img" src="../img/muwu.jpg" alt="">
-            <div class="text">
-              <h1>重庆市江北区卡娃汽车维修服务部</h1>
-              <p>
-                <span class="label">维修保养</span><span class="label">美容改装</span>
-                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
-              </p>
-              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
-              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
-            </div>
-          </li>
-          <li>
-            <img class="img" src="../img/muwu.jpg" alt="">
-            <div class="text">
-              <h1>重庆市江北区卡娃汽车维修服务部</h1>
-              <p>
-                <span class="label">维修保养</span><span class="label">美容改装</span>
-                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
-              </p>
-              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
-              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
-            </div>
-          </li>
-          <li>
-            <img class="img" src="../img/muwu.jpg" alt="">
-            <div class="text">
-              <h1>重庆市江北区卡娃汽车维修服务部</h1>
-              <p>
-                <span class="label">维修保养</span><span class="label">美容改装</span>
-                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
-              </p>
-              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
-              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
-            </div>
-          </li>
         </ul>
       </div>
     </div>
+
+    <select-carmodel class="fullscreen-modal fullheight" v-if="showCarModel" @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
   </div>
 </template>
 
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/dist/css/swiper.css';
+  import SelectCarmodel from "../../../components/select-carmodel/index.vue";
+  export default {
+    name: 'carlife-serviceList',
+    data() {
+      return {
+        showCarModel: false
+      };
+    },
+    components: {
+      SelectCarmodel
+    },
+    mounted() {
+      new Swiper('.swiper-container', {
+        autoplay: 5000,
+        loop: true,
+        visibilityFullFit: true,
+        pagination: '.swiper-pagination'
+      });
+    }
+  };
+</script>
+
 <style lang="scss" scoped="">
+  .mui-bar .mui-icon-arrowdown {
+    font-size: 16px;
+  }
   .swiper-container,
   .swiper-container img {
     width: 100%;
@@ -178,24 +163,3 @@
     }
   }
 </style>
-
-<script>
-  import Swiper from 'swiper';
-  import 'swiper/dist/css/swiper.css';
-  export default {
-    name: 'carlife-serviceList',
-    data() {
-      return {
-
-      };
-    },
-    mounted() {
-      new Swiper('.swiper-container', {
-        autoplay: 5000,
-        loop: true,
-        visibilityFullFit: true,
-        pagination: '.swiper-pagination'
-      });
-    }
-  };
-</script>

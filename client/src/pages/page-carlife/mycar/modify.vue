@@ -3,7 +3,8 @@
   <div id="carLife-myCarList">
     <header class="mui-bar mui-bar-nav">
       <router-link :to="{name: 'carlifeMycarList'}" class="mui-icon mui-icon-left-nav mui-pull-left"></router-link>
-      <h1 class="mui-title">车辆添加</h1>
+      <h1 v-if="isAdd" class="mui-title">车辆添加</h1>
+      <h1 v-else="" class="mui-title">车辆编辑</h1>
     </header>
     <ul class="mui-content mycar-modify">
       <li>
@@ -16,16 +17,21 @@
       <li>
         <label class="title">品牌型号</label>
         <span class="right">
-          <span @click="showCarModel = true" class="arrow right">请选择</span>
+          <span @click="showCarModel = true" class="arrow right">
+            <template v-if="!carBrandValue">请选择</template>
+            <template v-else="">
+              {{carBrandValue.brandName}}{{carBrandValue.seriesName}}{{carBrandValue.modelName}}
+            </template>
+          </span>
         </span>
       </li>
-      <li>
+      <li v-if="!isAdd">
         <span class="title">车架号</span>
         <span class="right">
           <input placeholder="请输入车架号"/>
         </span>
       </li>
-      <li>
+      <li v-if="!isAdd">
         <span class="title">发动机号</span>
         <span class="right">
           <input placeholder="请输入发动机号"/>
@@ -36,10 +42,10 @@
       <div>保存</div>
     </div>
     <template v-if="showShortNameModal">
-      <select-cityshortname :name="carShortName" @on-select="getCarShortName" class="select-cityshortname"></select-cityshortname>
+      <select-cityshortname :name="carShortName" @on-select="getCarShortName" class="fullscreen-modal"></select-cityshortname>
       <div @click="showShortNameModal = false" class="fullscreen-mask"></div>
     </template>
-    <select-carmodel class="select-carmodel" v-if="showCarModel" @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
+    <select-carmodel class="fullscreen-modal fullheight" v-if="showCarModel" @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
   </div>
 </template>
 
@@ -53,8 +59,15 @@
         showShortNameModal: false,
         showCarModel: false,
         carShortName: '渝',
-        carBrandValue: {}
+        carBrandValue: null
       };
+    },
+    props: {
+      isAdd: {
+        type: Boolean,
+        default: true,
+        required: false
+      }
     },
     components: {
       SelectCityshortname,
@@ -98,6 +111,9 @@
       .right {
         width: 100%;
         text-align: right;
+        /*overflow: hidden;*/
+        /*white-space: nowrap;*/
+        /*text-overflow: ellipsis;*/
         input::-webkit-input-placeholder,  .arrow{
           color: gray;
         }
@@ -145,16 +161,6 @@
       background: #2193fc;
       border-radius: .1rem;
     }
-  }
-  .select-cityshortname, .select-carmodel {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    z-index: 99;
-  }
-  .select-carmodel {
-    height: 100%;
   }
 </style>
 

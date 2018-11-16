@@ -4,10 +4,10 @@
     <header class="mui-bar mui-bar-nav">
       <router-link :to="{name: 'carlifeIndex'}" class="mui-icon mui-icon-left-nav mui-pull-left"></router-link>
       <h1 class="mui-title">车辆管理</h1>
-      <router-link :to="{name: 'carlifeMycarAdd'}" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">添加</router-link>
+      <router-link :to="{name: 'carlifeMycarAdd'}" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right"><span class="mui-icon mui-icon-plusempty"></span></router-link>
     </header>
     <ul class="mui-content mycar-list">
-      <li>
+      <li @click="goDetail">
         <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
         <div class="text">
           <h1>渝BTD123</h1>
@@ -36,6 +36,13 @@
     name: 'carLife-myCarList',
     data() {
       return {};
+    },
+    methods: {
+      goDetail() {
+        this.$router.push({
+          name: 'carlifeMycarModify'
+        });
+      }
     }
   };
 </script>

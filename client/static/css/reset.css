@@ -50,15 +50,24 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
 }
 
-.fullscreen-mask {
+.fullscreen-mask, .fullscreen-modal{
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
-  z-index: 9;
   width: 100%;
+}
+.fullscreen-mask {
+  z-index: 9;
   height: 100%;
   background: #000;
   opacity: .3;
+}
+.fullscreen-modal {
+  z-index: 99;
+  background: #fff;
+}
+.fullscreen-modal.fullheight {
+  height: 100%;
 }
 
 /*mui样式修改*/

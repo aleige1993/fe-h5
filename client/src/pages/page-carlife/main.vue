@@ -8,7 +8,7 @@
     </header>
     <div class="mui-content">
       <div class="carlife-addcar">
-        <router-link :to="{name: 'carlifeMycarAdd'}" class="button"><img src="./img/add_to_ic.png" alt="">添加爱车</router-link>
+        <router-link :to="{name: 'carlifeMycarAdd'}" class="button"><span class="mui-icon mui-icon-plusempty"></span>添加爱车</router-link>
         <div class="text">想要有更多的服务吗？快来添加爱车！</div>
         <!--<div class="text">{{this.$store.getters.userInfo}}</div>-->
       </div>

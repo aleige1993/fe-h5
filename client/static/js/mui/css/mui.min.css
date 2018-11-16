@@ -1567,8 +1567,8 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 
 .mui-title
 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: normal;
     line-height: 44px;
 
     position: absolute;
@@ -1682,7 +1682,7 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 
 .mui-bar .mui-btn-link
 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 44px;
 
     top: 0;
@@ -1730,13 +1730,12 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 
 .mui-bar .mui-icon
 {
-    font-size: 34px;
+    font-size: 30px;
 
     position: relative;
     z-index: 20;
 
-    padding-top: 5px;
-    padding-bottom: 10px;
+    padding-top: 7px;
 }
 .mui-bar .mui-icon:active
 {

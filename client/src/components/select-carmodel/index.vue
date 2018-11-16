@@ -17,21 +17,41 @@
           <div class="mui-indexed-list-alert"></div>
         </div>
         <div id="select-carmodel-inner" class="mui-indexed-list-inner">
-          <div class="mui-indexed-list-empty-alert">没有数据</div>
-          <ul class="mui-table-view">
-            <template v-if="selectStep === 0 && carBrand.groupName" v-for="carBrand in carBrandList">
-              <li class="mui-table-view-divider mui-indexed-list-group" :data-group="carBrand.groupName">{{carBrand.groupName}}</li>
-              <li @click="getSeriesList(list.brandNo, list.brandName)" v-for="list in carBrand.groupList" class="mui-table-view-cell mui-indexed-list-item">{{list.brandName}}</li>
-            </template>
-            <template v-if="selectStep === 1 && carSeries.groupName"  v-for="carSeries in carSeriesList">
-              <li class="mui-table-view-divider mui-indexed-list-group" :data-group="carSeries.groupName">{{carSeries.groupName}}</li>
-              <li @click="getModelList(list.seriesNo, list.seriesName)" v-for="list in carSeries.groupList" class="mui-table-view-cell mui-indexed-list-item">{{list.seriesName}}</li>
-            </template>
-            <template v-if="selectStep === 2 && carModel.groupName"  v-for="carModel in carModelList">
-              <li class="mui-table-view-divider mui-indexed-list-group" :data-group="carModel.groupName">{{carModel.groupName}}</li>
-              <li @click="selectModel(list.modelNo, list.modelName)" v-for="list in carModel.groupList" class="mui-table-view-cell mui-indexed-list-item">{{list.modelName}}</li>
-            </template>
-          </ul>
+          <template v-if="selectStep === 0">
+            <div v-if="carBrandList && !carBrandList.length" class="mui-indexed-list-empty-alert">没有数据</div>
+            <ul v-else="" class="mui-table-view">
+              <template v-if="carBrand.groupName" v-for="carBrand in carBrandList">
+                <li class="mui-table-view-divider mui-indexed-list-group" :data-group="carBrand.groupName">{{carBrand.groupName}}</li>
+                <li @click="getSeriesList(list.brandNo, list.brandName)" v-for="list in carBrand.groupList" class="mui-table-view-cell mui-indexed-list-item">
+                  <img class="logo" :src="list.logo" alt="">{{list.brandName}}
+                </li>
+              </template>
+            </ul>
+          </template>
+          <template v-if="selectStep === 1">
+            <div v-if="carSeriesList && !carSeriesList.length" class="mui-indexed-list-empty-alert">没有数据</div>
+            <ul v-else="" class="mui-table-view">
+              <template v-for="carSeries in carSeriesList">
+                <li class="mui-table-view-divider mui-indexed-list-group" :data-group="carSeries.groupName">{{carSeries.groupName}}</li>
+                <li @click="getModelList(list.seriesNo, list.seriesName)" v-for="list in carSeries.groupList" class="mui-table-view-cell mui-indexed-list-item">
+                  {{list.seriesName}}
+                </li>
+              </template>
+            </ul>
+          </template>
+          <template v-if="selectStep === 2">
+            <div v-if="carModelList && !carModelList.length" class="mui-indexed-list-empty-alert">没有数据</div>
+            <ul v-else="" class="mui-table-view">
+              <template v-for="carModel in carModelList">
+                <li class="mui-table-view-divider mui-indexed-list-group" :data-group="carModel.groupName">
+                  {{carModel.groupName}}
+                </li>
+                <li @click="selectModel(list.modelNo, list.modelName)" v-for="list in carModel.groupList" class="mui-table-view-cell mui-indexed-list-item">
+                  {{list.modelName}}
+                </li>
+              </template>
+            </ul>
+          </template>
         </div>
       </div>
     </div>
@@ -46,9 +66,9 @@
         selectCarModel: false,
         selectStep: 0, // 0,1,2分别代表选择品牌,车系,车型
         titleText: ['车辆品牌', '车系', '车型'],
-        carBrandList: [],
-        carSeriesList: [],
-        carModelList: [],
+        carBrandList: null,
+        carSeriesList: null,
+        carModelList: null,
         carValue: {
           brandNo: '',
           brandName: '',
@@ -77,6 +97,7 @@
         this.$data.selectStep = 2;
         this.$data.carValue.seriesNo = seriesNo;
         this.$data.carValue.seriesName = seriesName;
+        this.$data.carModelList = null;
         let res = await this.$formdata.post('/openapi/common/cars/model', {
           seriesNo
         });
@@ -88,6 +109,7 @@
         this.$data.selectStep = 1;
         this.$data.carValue.brandNo = brandNo;
         this.$data.carValue.brandName = brandName;
+        this.$data.carSeriesList = null;
         let res = await this.$formdata.post('/openapi/common/cars/series', {
           brandNo
         });
@@ -96,6 +118,7 @@
         }
       },
       async getBrandList() {
+        this.$data.carBrandList = null;
         let res = await this.$formdata.post('/openapi/common/cars/brand', {
           brandName: this.$data.searchValue
         });
@@ -127,3 +150,17 @@
     }
   };
 </script>
+
+<style lang="scss" scoped="">
+  .mui-indexed-list-empty-alert {
+    display: block;
+  }
+  .mui-indexed-list-item, .mui-indexed-list-item .logo {
+    vertical-align: middle;
+  }
+  .mui-indexed-list-item .logo {
+    width: .8rem;
+    height: .8rem;
+    margin-right: .2rem;
+  }
+</style>
