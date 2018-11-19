@@ -63,7 +63,6 @@
     name: 'select-carmodel',
     data() {
       return {
-        selectCarModel: false,
         selectStep: 0, // 0,1,2分别代表选择品牌,车系,车型
         titleText: ['车辆品牌', '车系', '车型'],
         carBrandList: null,

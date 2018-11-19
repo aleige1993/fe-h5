@@ -4,7 +4,7 @@
     <header class="mui-bar mui-bar-nav">
       <router-link :to="{name: 'carlifeIndex'}" class="mui-icon mui-icon-left-nav mui-pull-left"></router-link>
       <h1 class="mui-title">美容洗车</h1>
-      <span @click="showCarModel = true" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">
+      <span @click="showCityModel = true" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">
         重庆市<span class="mui-icon mui-icon-arrowdown"></span>
       </span>
     </header>
@@ -41,23 +41,34 @@
       </div>
     </div>
 
-    <select-carmodel class="fullscreen-modal fullheight" v-if="showCarModel" @on-close="closeCarModel" @on-select="getCarValue"></select-carmodel>
+    <select-cityname class="fullscreen-modal fullheight" v-if="showCityModel" @on-close="closeCityModal" @on-select="getCityValue"></select-cityname>
+    {{cityValue}}
   </div>
 </template>
 
 <script>
   import Swiper from 'swiper';
   import 'swiper/dist/css/swiper.css';
-  import SelectCarmodel from "../../../components/select-carmodel/index.vue";
+  import SelectCityname from "../../../components/select-cityname/index.vue";
   export default {
     name: 'carlife-serviceList',
     data() {
       return {
-        showCarModel: false
+        showCityModel: false,
+        cityValue: null
       };
     },
     components: {
-      SelectCarmodel
+      SelectCityname
+    },
+    methods: {
+      getCityValue(value) {
+        this.$data.cityValue = value;
+        this.closeCityModal();
+      },
+      closeCityModal() {
+        this.$data.showCityModel = false;
+      }
     },
     mounted() {
       new Swiper('.swiper-container', {
