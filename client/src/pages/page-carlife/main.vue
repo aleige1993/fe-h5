@@ -30,7 +30,7 @@
         </li>
       </ul>
       <!--<h1 class="carlife-title">活动专区</h1>-->
-      <a class="carlife-advertisement" href=""><img src="./img/img_headline_blue.png" alt=""></a>
+      <a class="carlife-advertisement" href="javascript:"><img src="./img/img_headline_blue.png" alt=""></a>
     </div>
   </div>
 </template>
@@ -40,7 +40,6 @@
     name: 'carLifeMain',
     data() {
       return {
-        message: ''
       };
     },
     mounted() {
