@@ -28,12 +28,12 @@ Vue.prototype.$formdata = new Formdata();
 // Vue.prototype.$userLogin = UserLogin;
 
 // 与原生相互
-import NativeAppUtils from '@/utils/NativeAppUtils';
-Vue.prototype.$nativeAppUtils = NativeAppUtils;
-// 与app搭桥通讯
+// import NativeAppUtils from '@/utils/NativeAppUtils';
+// Vue.prototype.$nativeAppUtils = NativeAppUtils;
 import Bridge from './utils/Bridge';
-Vue.prototype.$bridge = Bridge;
-Vue.prototype.$bridge.initBridge();
+Bridge.initBridge();
+import BridgeFun from './utils/BridgeFun';
+Vue.prototype.$BridgeFun = BridgeFun;
 
 // 预浏览图片
 import preview from 'vue-photo-preview';

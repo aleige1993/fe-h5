@@ -50,7 +50,7 @@ module.exports = [
   {
     path: '/carlife', name: 'carLife', component: resolve => { require(['@/pages/page-carlife'], resolve)},
     children: [
-      {path: 'index', name: 'carlifeIndex', component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
+      {path: 'index', name: 'carlifeIndex', meta: {needUserInfo: true}, component: resolve => { require(['@/pages/page-carlife/main'], resolve)}},
       {
         path: 'mycar', name: 'carlifeMycar', component: resolve => { require(['@/pages/page-carlife/mycar'], resolve)},
         children: [

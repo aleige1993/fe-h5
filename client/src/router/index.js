@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Store from '@/store';
-import Bridge from '@/utils/Bridge';
+import BridgeFun from '@/utils/BridgeFun';
+import Tools from '@/utils/Tools';
 // import Config from '@/utils/Config';
 // import UserLogin from '@/utils/UserLogin';
 // import Http from '@/utils/HttpUtils';
@@ -20,17 +21,16 @@ MyRouter.beforeEach((to, from, next) => {
   let meta = to.meta;
   // 设置title
   document.title = meta.title || '颂车';
-  // if (meta.needUserInfo) {
-  //   setTimeout(() => {
-  //     Bridge.callhandler('getUserInfo', {}, (data) => {
-  //       Store.dispatch('setUserInfo', {token: '123456'});
-  //       next();
-  //     });
-  //   }, 200);
-  // } else {
-  //   next();
-  // }
-  next();
+  if (meta.needUserInfo) {
+    setTimeout(() => {
+      BridgeFun.getUserInfo((data) => {
+        Store.dispatch('setUserInfo', data);
+        next();
+      });
+    }, 200);
+  } else {
+    next();
+  }
 });
 
 // MyRouter.afterEach((route)=>{
