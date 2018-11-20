@@ -2,7 +2,7 @@
 <template>
   <div id="carlife-serviceList">
     <header class="mui-bar mui-bar-nav">
-      <router-link :to="{name: 'carlifeIndex'}" class="mui-icon mui-icon-left-nav mui-pull-left"></router-link>
+      <router-link :to="{name: 'carlifeServiceList'}" class="mui-icon mui-icon-left-nav mui-pull-left"></router-link>
       <h1 class="mui-title">美容洗车</h1>
     </header>
     <div class="mui-content">

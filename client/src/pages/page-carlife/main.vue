@@ -21,11 +21,11 @@
           <p>维修保养</p>
         </li>
         <li>
-          <router-link :to="{name: 'carlifeServiceList'}"><img src="./img/list_violation_inquiry_ic.png" alt=""></router-link>
+          <img src="./img/list_violation_inquiry_ic.png" alt="">
           <p>违章查询</p>
         </li>
         <li>
-          <router-link :to="{name: 'carlifeServiceList'}"><img src="./img/list_service_ic.png" alt=""></router-link>
+          <img src="./img/list_service_ic.png" alt="">
           <p>保险服务</p>
         </li>
       </ul>

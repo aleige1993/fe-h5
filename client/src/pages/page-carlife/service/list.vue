@@ -26,23 +26,25 @@
         </div>
         <ul>
           <li>
-            <img class="img" src="../img/muwu.jpg" alt="">
-            <div class="text">
-              <h1>重庆市江北区卡娃汽车维修服务部</h1>
-              <p>
-                <span class="label">维修保养</span><span class="label">美容改装</span>
-                <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
-              </p>
-              <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
-              <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
-            </div>
+            <router-link :to="{name: 'carlifeServiceDetail'}">
+              <img class="img" src="../img/muwu.jpg" alt="">
+              <div class="text">
+                <h1>重庆市江北区卡娃汽车维修服务部</h1>
+                <p>
+                  <span class="label">维修保养</span><span class="label">美容改装</span>
+                  <img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" /><img class="icon" src="../img/ic_star_whole.png" alt="" />
+                </p>
+                <p><img class="icon" src="../img/ic_time.png" alt="">营业时间:800-22:00</p>
+                <p><span class="address"><img class="icon" src="../img/ic_location.png" alt="">重庆市江北区观音桥重庆市江北区观音桥</span><span class="button">前往导航</span></p>
+              </div>
+            </router-link>
           </li>
         </ul>
       </div>
     </div>
 
     <select-cityname class="fullscreen-modal fullheight" v-if="showCityModel" @on-close="closeCityModal" @on-select="getCityValue"></select-cityname>
-    {{cityValue}}
+    <!--{{cityValue}}-->
   </div>
 </template>
 
