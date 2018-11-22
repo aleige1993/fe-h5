@@ -1,13 +1,19 @@
 import Bridge from './Bridge';
+import Store from '@/store';
 
 class BridgeFun {
   /**
    * 获取用户信息
    */
   getUserInfo(callback) {
-    Bridge.callhandler('getUserInfo', {}, (data) => {
-      callback(JSON.parse(data));
-    });
+    let userInfo = Store.getters.userInfo;
+    if (userInfo) {
+      callback(userInfo);
+    } else {
+      Bridge.callhandler('getUserInfo', {}, (data) => {
+        callback(JSON.parse(data));
+      });
+    }
   }
 
   /**

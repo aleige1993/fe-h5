@@ -7,25 +7,11 @@
       <router-link :to="{name: 'carlifeMycarAdd'}" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right"><span class="mui-icon mui-icon-plusempty"></span></router-link>
     </header>
     <ul class="mui-content mycar-list">
-      <li @click="goDetail">
-        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
+      <li v-for="list in myCarList" @click="goDetail(list.id)">
+        <img :src="list.carPicUrl" alt="">
         <div class="text">
-          <h1>渝BTD123</h1>
-          <p>大众桑塔纳 2016款1.6L 自动风尚版大众桑塔纳 2016款1.6L 自动风尚版</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
-        <div class="text">
-          <h1>渝BTD123</h1>
-          <p>大众桑塔纳 2016款1.6L 自动风尚版大众桑塔纳 2016款1.6L 自动风尚版</p>
-        </div>
-      </li>
-      <li>
-        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2072836687,872676525&fm=58">
-        <div class="text">
-          <h1>渝BTD123</h1>
-          <p>大众桑塔纳 2016款1.6L 自动风尚版大众桑塔纳 2016款1.6L 自动风尚版</p>
+          <h1>{{list.carLicenseNo}}</h1>
+          <p>{{list.carBrand}}{{list.carSeries}}{{list.carModel}}</p>
         </div>
       </li>
     </ul>
@@ -35,14 +21,29 @@
   export default {
     name: 'carLife-myCarList',
     data() {
-      return {};
+      return {
+        myCarList: []
+      };
     },
     methods: {
-      goDetail() {
+      goDetail(id) {
         this.$router.push({
-          name: 'carlifeMycarModify'
+          name: 'carlifeMycarModify',
+          query: {
+            id
+          }
         });
       }
+    },
+    mounted() {
+      this.$formdata.post('/openapi/member/car/list', {
+        currentPage: 1,
+        pageSize: 99999999999
+      }, (res) => {
+        if (res.success && res.success === 'true') {
+          this.$data.myCarList = res.data;
+        }
+      });
     }
   };
 </script>

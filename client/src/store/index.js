@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     global: {
-      userInfo: {},
+      userInfo: null,
       cityShortName: [
         '京', '津', '沪', '渝', '冀', '豫',
         '云', '辽', '黑', '湘', '皖', '鲁',

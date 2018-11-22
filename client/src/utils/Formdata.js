@@ -1,61 +1,49 @@
-// import Vue from 'vue';
 import axios from 'axios';
-import config from './Config';
-import store from '@/store';
+import Config from './Config';
+import BridgeFun from './BridgeFun';
 import Tools from './Tools';
 
-axios.defaults.baseURL = config.HTTPOPENAPIURL;
+axios.defaults.baseURL = Config.HTTPOPENAPIURL;
 axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
 
 class Formdata {
   /**
    * 发起post请求
-   * @param _url
-   * @param _data
    */
-  post(_url, _data) {
-    let _param = new FormData(); // 创建form对象
-    _param.append('message', JSON.stringify(_data));// 通过append向form对象添加数据
-    let _config = {
-      headers: {
-        'appId': config.HTTPHEADER_APPID,
-        'version': config.HTTPHEADER_APPVERSION,
-        'sign': config.HTTPHEADER_APPSIGN,
-        'token': store.getters.userInfo.token || ''
-      }
+  post(url, data, callback) {
+    let param = new FormData();
+    param.append('message', JSON.stringify(data));
+    let headers = {
+      'appId': Config.HTTPHEADER_APPID,
+      'version': Config.HTTPHEADER_APPVERSION,
+      'sign': Config.HTTPHEADER_APPSIGN
     };
-    return axios.post(_url, _param, _config).then(res => {
+    if (!callback) {
+      return this.getPostResult(url, param, headers);
+    } else {
+      let _this = this;
+      BridgeFun.getUserInfo((data) => {
+        headers['token'] =  data.token;
+        _this.getPostResult(url, param, headers, callback);
+      });
+    }
+  }
+  /**
+   * 获取post请求结果
+   */
+  getPostResult(url, param, headers, callback) {
+    return axios.post(url, param, {
+      headers
+    }).then(res => {
       let data = res.data;
       if (data.success && data.success === 'false') {
         Tools.layerOpen(data.message);
       }
+      if (callback) {
+        callback(data);
+      }
       return data;
     }).catch(err => {});
   }
-  /**
-   * 发起get请求
-   * @param _url
-   */
-  // get(_url, _params = {}) {
-  //   // let _headers = {
-  //   //   'token': userLogin.getLoginToken().toString()
-  //   // };
-  //   return axios({
-  //     // headers: _headers,
-  //     url: _url,
-  //     dataType: 'json',
-  //     method: 'GET',
-  //     params: _params
-  //   }).then(res => {
-  //     let data = res.data;
-  //     if (!data.success) {
-  //       Vue.prototype.$notify.error({
-  //         title: '提示',
-  //         message: data.reMsg
-  //       });
-  //     }
-  //     return data;
-  //   }).catch(err => {});
-  // }
 }
 export default Formdata;
