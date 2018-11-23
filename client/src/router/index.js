@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import Config from '@/utils/Config';
+import Formdata from '@/utils/Formdata';
 import Store from '@/store';
-import Bridge from '@/utils/Bridge';
-// import Config from '@/utils/Config';
-// import UserLogin from '@/utils/UserLogin';
-// import Http from '@/utils/HttpUtils';
 
 Vue.use(Router);
 
@@ -17,16 +15,19 @@ const MyRouter = new Router({
 });
 
 MyRouter.beforeEach((to, from, next) => {
-  let meta = to.meta;
   // 设置title
-  document.title = meta.title || '颂车';
-  if (meta.needUserInfo) {
-    setTimeout(() => {
-      Bridge.callhandler('getUserInfo', {}, (data) => {
-        Store.dispatch('setUserInfo', {token: '123456'});
+  document.title = to.meta.title || '颂车';
+  if (Config.MOCK_USERINFO) {
+    new Formdata().post('/openapi/common/user/login', {
+      account: '15123334187',
+      password: '123456',
+      code: 3
+    }).then((res) => {
+      if (res.success && res.success === 'true') {
+        Store.dispatch('setUserInfo', res.data);
         next();
-      });
-    }, 200);
+      }
+    })
   } else {
     next();
   }

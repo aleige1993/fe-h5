@@ -1,9 +1,18 @@
 
 module.exports = [
+  // needLogin
   { path: '/login', name: 'login', component: resolve => { require(['@/pages/page-login'], resolve)} },
   { path: '/querysmscode', name: 'querySmsCode', component: resolve => { require(['@/pages/page-querysmscode'], resolve)} },
+
   // 大图浏览
   { path: '/imagepreview', name: 'imagePreview', component: resolve => { require(['@/pages/page-imagepreview'], resolve)} },
+
+  // 头条详情
+  { path: '/newsdetail', name: 'newsDetail', component: resolve => { require(['@/pages/page-newsdetail'], resolve)} },
+
+  // 分享
+  { path: '/share', name: 'share', component: resolve => { require(['@/pages/page-share'], resolve)} },
+
   // 额度测评
   {
     path: '/creditlimlt', name: 'creditlimlt', component: resolve => { require(['@/pages/page-creditlimit'], resolve)},
@@ -12,24 +21,7 @@ module.exports = [
       { path: 'result', name: 'creditlimltResult',  meta: {title: '测测资格'}, component: resolve => { require(['@/pages/page-creditlimit/result'], resolve)} }
     ]
   },
-  // 帮助中心
-  { path: '/helpcenter', name: 'helpCenter', meta: {title: '帮助中心'}, component: resolve => { require(['@/pages/page-helpcenter'], resolve)} },
-  // 分享
-  { path: '/share', name: 'share', component: resolve => { require(['@/pages/page-share'], resolve)} },
-  // 协议
-  {
-    path: '/agreement', name: 'agreement', component: resolve => { require(['@/pages/page-agreement'], resolve)},
-    children: [
-      // 注册
-      { path: 'register', name: 'agreementRegister', meta: {title: '注册协议'}, component: resolve => { require(['@/pages/page-agreement/register'], resolve)} },
-      // 征信授权书
-      { path: 'protocol', name: 'agreementProtocol', meta: {title: '征信授权协议'}, component: resolve => { require(['@/pages/page-agreement/protocol'], resolve)} },
-      // 支付
-      { path: 'payment', name: 'agreementPayment', meta: {title: '支付协议'}, component: resolve => { require(['@/pages/page-agreement/payment'], resolve)} }
-    ]
-  },
-  // 头条详情
-  { path: '/newsdetail', name: 'newsDetail', component: resolve => { require(['@/pages/page-newsdetail'], resolve)} },
+
   // 抽奖
   {
     path: '/draw', name: 'draw', component: resolve => { require(['@/pages/page-draw'], resolve)},
@@ -45,9 +37,11 @@ module.exports = [
       { path: 'begin', name: 'drawBegin', component: resolve => { require(['@/pages/page-drawname/begin'], resolve)}}
     ]
   },
+
   // 公众号颂车小站招募
   { path: '/recruit', name: 'recruit', meta: {title: '颂车小站站主招募'}, component: resolve => { require(['@/pages/page-station/car-recruit/recruit'], resolve)} },
   { path: '/recruitTwo', name: 'recruitTwo', meta: {title: '颂车小站站主招募'}, component: resolve => { require(['@/pages/page-station/car-recruit-two/recruitTwo'], resolve)} },
+
   // 小站租车
   {
     path: '/carlease', name: 'carShopLease', component: resolve => { require(['@/pages/page-carshoplease'], resolve)},

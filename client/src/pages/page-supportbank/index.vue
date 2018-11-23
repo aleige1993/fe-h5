@@ -34,14 +34,14 @@
       }
     },
     async mounted() {
-      let res = await this.$http.get('h5/app/getBankList', {});
-      if (res.success) {
-        this.$data.bankList = res.body;
-      }
-//      let res = await this.$formdata.post('/openapi/common/banks/support', {});
+//      let res = await this.$http.get('h5/app/getBankList', {});
 //      if (res.success) {
-//        this.$data.bankList = res.data;
+//        this.$data.bankList = res.body;
 //      }
+      let res = await this.$formdata.post('/openapi/common/banks/support', {});
+      if (res.success) {
+        this.$data.bankList = res.data;
+      }
     }
   };
 </script>

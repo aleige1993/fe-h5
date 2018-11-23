@@ -7,12 +7,8 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-// Config
 import Config from './utils/Config';
 Vue.prototype.$config = Config;
-
-// http mockjs
-// import {} from './utils/HttpMock';
 
 import Tools from './utils/Tools';
 Vue.prototype.$Tools = Tools;
@@ -23,17 +19,10 @@ Vue.prototype.$http = new Http();
 import Formdata from './utils/Formdata';
 Vue.prototype.$formdata = new Formdata();
 
-// 登录工具类
-// import UserLogin from '@/utils/UserLogin';
-// Vue.prototype.$userLogin = UserLogin;
-
-// 与原生相互
-import NativeAppUtils from '@/utils/NativeAppUtils';
-Vue.prototype.$nativeAppUtils = NativeAppUtils;
-// 与app搭桥通讯
 import Bridge from './utils/Bridge';
-Vue.prototype.$bridge = Bridge;
-Vue.prototype.$bridge.initBridge();
+Bridge.initBridge();
+import BridgeFun from './utils/BridgeFun';
+Vue.prototype.$BridgeFun = BridgeFun;
 
 // 预浏览图片
 import preview from 'vue-photo-preview';
@@ -42,10 +31,6 @@ let options = {
   fullscreenEl: false
 };
 Vue.use(preview, options);
-
-// 在线浏览pdf
-import pdf from '@/pages-scbang/page-employee/customer-details/pdf';
-Vue.use(pdf);
 
 new Vue({
   el: '#app',

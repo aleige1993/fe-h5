@@ -1,7 +1,7 @@
 
 * {
   box-sizing: border-box;
-  font-size: .4rem;
+  font-size: .38rem;
   font-family: '微软雅黑';
 }
 
@@ -48,6 +48,26 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-size: 100%;
+}
+
+.fullscreen-mask, .fullscreen-modal{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.fullscreen-mask {
+  z-index: 9;
+  height: 100%;
+  background: #000;
+  opacity: .3;
+}
+.fullscreen-modal {
+  z-index: 99;
+  background: #fff;
+}
+.fullscreen-modal.fullheight {
+  height: 100%;
 }
 
 /*mui样式修改*/

@@ -82,7 +82,7 @@
         this.getHeadlineList();
       },
       getOpenUrl(url) {
-        this.$bridge.callhandler('toFindDetail', url);
+        this.$BridgeFun.openWebView(url);
       },
       pageCount(count, limit) { //获取总页数
         return count > 0 ? ((count < limit) ? 1 : ((count % limit) ? (parseInt(count / limit) + 1) : (count / limit))) : 0;

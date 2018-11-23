@@ -4,7 +4,7 @@ import Config from './Config';
 import UserLogin from './UserLogin';
 
 // 处理Raw纯json字符串得请求
-axios.defaults.baseURL = Config.HTTPBASEURL;
+// axios.defaults.baseURL = Config.HTTPBASEURL;
 axios.defaults.headers.common['Content-Type'] = 'application/json;charset=UTF-8';
 // Vue.prototype.$ajax = axios;
 

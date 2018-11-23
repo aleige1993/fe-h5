@@ -1,14 +1,17 @@
 
 <template>
-  <div id="carLife-service">
+  <div id="buycar-detail">
     <router-view></router-view>
   </div>
 </template>
+
 <script>
   export default {
-    name: 'carLife-service',
+    name: 'buyCarDetail',
     data() {
-      return {};
+      return {
+
+      };
     }
   };
 </script>

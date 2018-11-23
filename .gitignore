@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-client/config/index.js
 server/views/
 npm-debug.log*
 yarn-debug.log*
