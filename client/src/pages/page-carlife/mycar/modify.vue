@@ -11,14 +11,14 @@
       <li>
         <label class="title">车牌号</label>
         <span class="right">
-          <span @click="showShortNameModal = true" class="arrow bottom car-shortname">{{submitData.carShortName || '请选择'}}</span>
+          <span @click="showShortNameModal = true" class="arrow bottom-arrow car-shortname">{{submitData.carShortName || '请选择'}}</span>
           <input class="car-id" placeholder="请输入车牌号" v-model="submitData.carId"/>
         </span>
       </li>
       <li>
         <label class="title">品牌型号</label>
         <span class="right">
-          <span @click="showCarModel = true" class="arrow right">
+          <span @click="showCarModel = true" class="arrow right-arrow">
             <template v-if="!submitData.carModelNo">请选择</template>
             <template v-else="">
               {{submitData.carBrand}}{{submitData.carSeries}}{{submitData.carModel}}
@@ -156,11 +156,11 @@
         width: 5em;
       }
       .right {
-        width: 100%;
+        width: 80%;
         text-align: right;
-        /*overflow: hidden;*/
-        /*white-space: nowrap;*/
-        /*text-overflow: ellipsis;*/
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         input::-webkit-input-placeholder,  .arrow{
           color: gray;
         }
@@ -184,10 +184,10 @@
             color: #bbb;
           }
         }
-        .bottom:after {
+        .bottom-arrow:after {
           content: '\e581';
         }
-        .right:after {
+        .right-arrow:after {
           content: '\e583';
         }
       }
