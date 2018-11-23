@@ -7,8 +7,8 @@ const path = require('path');
 module.exports = {
   dev: {
     env: require('./dev.env'),
-    host: '192.168.31.147', // can be overwritten by process.env.HOST
-    port: process.env.PORT || 8090,
+    host: 'localhost', // can be overwritten by process.env.HOST
+    port: process.env.PORT || 8000,
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

@@ -21,6 +21,9 @@
         scale: 0.9
       };
     },
+    mounted() {
+      this.showPDF('http://dev-songchedai.oss-cn-shanghai.aliyuncs.com/other/201809/07/20180907101110217.pdf');
+    },
     methods: {
       showPDF(url) {
         let _this = this

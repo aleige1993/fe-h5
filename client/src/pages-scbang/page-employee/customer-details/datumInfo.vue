@@ -63,7 +63,8 @@
     methods: {
       changNum(num) {
         this.$data.isback = num;
-      }
+      },
+
     },
     mounted() {
       document.body.style.backgroundColor = '#eeeeee';
@@ -142,7 +143,7 @@
               display: inline-block;
               width:0.8rem;
               height: 0.8rem;
-              border-radius: 100%; 
+              border-radius: 100%;
               text-align: center;
               line-height:0.8rem;
               background:url('../img/ic_liulan.png') no-repeat ;
