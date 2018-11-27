@@ -67,6 +67,8 @@ module.exports = [
         ]
       },
     ]
-  }
-
+  },
+  //新增担保人信息
+  { path: '/guarantee', name: 'guarantee', component: resolve => { require(['@/pages/page-guarantee'], resolve)}},
+  {path: '/returnFaceToken', name: 'guarantee', component: resolve => { require(['@/pages/page-guarantee/returnFaceToken'], resolve)}}
 ];

@@ -44,7 +44,7 @@
         active: 0,
         columnList: [],
         currentPage: 1,
-        pageSize: 2,
+        pageSize: 10,
         id: '',
         Count: '',
         Refresh: ''
@@ -130,31 +130,31 @@
 
 <style lang="scss" scoped>
     .mui-scroll-wrapper{
-      margin-top:1.4rem;
+      margin-top:1.25rem;
     }
     .nav-hader{
       width:100%;
       height:1.2rem;
-      background-color:#3984FF;
+      background-color:#fff;
       li{
         float: left;
         width: 25%;
         text-align: center;
-        margin-top:0.35rem;
         span{
-          display: block;
-          width: 100%;
-          color: #CBDFFF;
-          border-right: 1px solid #77ABFF;
+          display: inline-block;
+          color: #92BBFF;
+          line-height: 1.15rem;
+          /*display: block;*/
+          /*width: 100%;*/
+          /*color: #CBDFFF;*/
+          /*border-right: 1px solid #77ABFF;*/
         }
-      }
-      li:last-child span{
-        border-right: 0;
       }
       li.active{
         font-weight: 600;
         span{
-          color: #fff;
+          border-bottom: 2px solid #3785ff;
+          color: #3984FF;
         }
       }
     }
