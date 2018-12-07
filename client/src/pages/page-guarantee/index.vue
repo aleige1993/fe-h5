@@ -47,10 +47,10 @@
 
       </div>
 
-    <a class="a-submit" @click="submitData">提 交</a>
+
 
     </div>
-
+    <a class="a-submit" @click="submitData">提 交</a>
 
     <select-cityname class="fullscreen-modal fullheight" v-if="showCityModel"  @on-close="closeCarModel" @on-select="getCityValue"></select-cityname>
   </div>
@@ -89,11 +89,10 @@
     async mounted() {
       document.body.style.backgroundColor = '#eeeeee';
       let res = await this.$formdata.post("/openapi/fbs/loans/loan/guarantee/h5/info", {
-        guaPersonNo: "201811241411172101248100010"
+        guaPersonNo: this.$route.query.guaPersonNo || '201811301311592101248100001'
       });
       this.$data.memberInfo = res.data;
       this.$data.userInfo.guaPersonNo = res.data.guaPersonNo;
-      console.log(res);
     },
     beforeDestroy() {
       document.body.style.backgroundColor = '#fff';
@@ -113,40 +112,31 @@
         this.$data.showCityModel = false;
       },
       async submitData() {
-        if (!(/^1\d{10}$/.test(this.$data.userInfo.guaPersonMobile))) {
+        var _this = this;
+        if (!(/^1\d{10}$/.test(_this.$data.userInfo.guaPersonMobile))) {
           this.$Tools.layerOpen('请输入正确的手机号');
           return false;
         }
-        if (!(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(this.$data.userInfo.guaPersonCertNo))) {
+        if (!(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(_this.$data.userInfo.guaPersonCertNo))) {
           this.$Tools.layerOpen('请输入合法的身份证');
           return false;
         }
-        let res = await this.$formdata.post('/openapi/fbs/loans/loan/guarantee/modify', this.$data.userInfo);
+        let res = await _this.$formdata.post('/openapi/fbs/loans/loan/guarantee/modify', _this.$data.userInfo);
         console.log(res);
         if (res.success === 'true') {
-          console.log('我进来了');
-          this.getToken();
+          _this.$router.push({path:'/returnFaceToken', query:_this.$data.userInfo});
         }
-        console.log('我没进来');
-      },
-      getToken() {
-        let res = this.$formdata.post('/openapi/face/get/face/token', {
-          memberName: this.$data.userInfo.guaPersonName,
-          certNo: this.$data.userInfo.guaPersonCertNo,
-          source: '2',
-          returnUrl: 'http://192.168.201.114:8090/#/returnFaceToken',
-          bizNo: this.$data.memberInfo.loanNo
-        });
-        console.log(res);
       }
-
     }
   };
 </script>
 
 <style lang="scss" scoped="">
+  .mui-content{
+    padding-bottom: 1.5rem;
+  }
   .a-submit{
-    position:fixed;
+    position:relative;
     bottom:0.5rem;
     width: 90%;
     left: 5%;

@@ -143,7 +143,7 @@
         span{
           display: inline-block;
           color: #92BBFF;
-          line-height: 1.15rem;
+          line-height: 1.2rem;
           /*display: block;*/
           /*width: 100%;*/
           /*color: #CBDFFF;*/
